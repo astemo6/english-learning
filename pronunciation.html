@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>发音训练 · 英语学习</title>
+<style>
+:root{color-scheme:light dark;--bg:#f3f1ec;--panel:#fffefa;--panel-2:#ebe8df;--ink:#1d211d;--muted:#64675f;--line:#d4d0c6;--strong:#1d211d;--accent:#e45a35;--accent-soft:#ffe2d6;--lime:#d5eb74;--lime-ink:#273000;--yellow:#f2ca57;--shadow:0 18px 45px rgba(36,34,27,.08)}
+@media(prefers-color-scheme:dark){:root{--bg:#171916;--panel:#21241f;--panel-2:#2a2d27;--ink:#f4f1e8;--muted:#b8bbb1;--line:#3b3e36;--strong:#f4f1e8;--accent:#ff7652;--accent-soft:#4a2920;--lime:#bfd35e;--lime-ink:#1d2500;--yellow:#d9ae40;--shadow:0 18px 45px rgba(0,0,0,.22)}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.6}
+.serif{font-family:Georgia,"Times New Roman",serif}
+.wrap{max-width:940px;margin:0 auto;padding:28px clamp(18px,4vw,40px) 90px}
+.back{display:inline-flex;align-items:center;gap:8px;color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;margin-bottom:26px}
+.back:hover{color:var(--ink)}
+.hero h1{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:clamp(38px,5.5vw,64px);font-weight:400;letter-spacing:-.03em;line-height:1.05}
+.hero .sub{color:var(--accent);font-weight:700;font-size:14px;margin:14px 0 6px;letter-spacing:.06em}
+.hero p{color:var(--muted);max-width:640px;margin:0 0 8px}
+.hero{margin-bottom:34px}
+h2.sec{font-family:Georgia,"Times New Roman",serif;font-size:30px;font-weight:400;margin:44px 0 6px;letter-spacing:-.02em}
+.sec-desc{color:var(--muted);font-size:14px;margin:0 0 20px;max-width:640px}
+.method-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
+.method{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 20px}
+.method .n{font-family:Georgia,serif;color:var(--accent);font-size:14px}
+.method h3{margin:8px 0 6px;font-size:17px}
+.method p{margin:0;font-size:14px;color:var(--muted)}
+.method p b{color:var(--ink)}
+details.timeline{margin-top:16px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:4px 20px}
+details.timeline summary{cursor:pointer;font-weight:700;padding:14px 0;list-style:none}
+details.timeline summary::-webkit-details-marker{display:none}
+details.timeline summary::after{content:"+";float:right;color:var(--accent);font-size:18px}
+details.timeline[open] summary::after{content:"–"}
+.tl{display:grid;grid-template-columns:86px 1fr;gap:6px 14px;padding:6px 0 18px;font-size:13.5px}
+.tl dt{font-family:Georgia,serif;color:var(--accent);white-space:nowrap}
+.tl dd{margin:0;color:var(--muted)}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin:8px 0 22px;position:sticky;top:0;background:var(--bg);z-index:5;padding-top:8px}
+.tab{border:0;background:transparent;padding:12px 18px;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-1px;font-weight:700;font-size:15px}
+.tab.active{color:var(--ink);border-color:var(--accent)}
+.tabpanel{display:none}
+.tabpanel.active{display:block}
+.session{background:var(--panel);border:1px solid var(--line);border-radius:12px;margin-bottom:14px;overflow:hidden}
+.session-head{width:100%;border:0;background:transparent;text-align:left;padding:18px 22px;cursor:pointer;display:flex;align-items:center;gap:16px;color:inherit}
+.session-head:hover{background:var(--panel-2)}
+.session-num{flex:0 0 auto;width:44px;height:44px;border-radius:50%;background:var(--lime);color:var(--lime-ink);display:grid;place-items:center;font-family:Georgia,serif;font-size:19px}
+.session-head h3{margin:0;font-size:18px;flex:1}
+.session-head h3 small{display:block;font-weight:400;color:var(--muted);font-size:13px;margin-top:2px}
+.session-time{font-size:12px;color:var(--muted);white-space:nowrap;font-family:Georgia,serif}
+.session-head .chev{color:var(--accent);font-size:20px;transition:transform .2s}
+.session.open .session-head .chev{transform:rotate(180deg)}
+.session-body{display:none;padding:4px 22px 24px;border-top:1px dashed var(--line)}
+.session.open .session-body{display:block}
+.session-body h4{font-size:13px;color:var(--accent);margin:20px 0 8px;letter-spacing:.05em}
+.session-body h4:first-child{margin-top:14px}
+.session-body ul{margin:0;padding-left:20px;font-size:14.5px}
+.session-body li{margin-bottom:7px}
+.session-body li b{color:var(--accent)}
+.rule{background:var(--accent-soft);border-radius:8px;padding:14px 16px;font-size:14.5px;margin:10px 0}
+.rule b{color:var(--accent)}
+.rule ol,.rule ul{margin:8px 0 0;padding-left:20px}
+.rule li{margin-bottom:6px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}
+.chip{font-size:13px;background:var(--panel-2);border-radius:99px;padding:6px 12px;font-family:Georgia,serif}
+.practice{margin:10px 0 0;display:grid;gap:8px}
+.practice .sent{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px 15px}
+.practice .en{font-family:Georgia,serif;font-size:16.5px;margin:0}
+.practice .zh{font-size:12.5px;color:var(--muted);margin:4px 0 0}
+.twister{border-left:4px solid var(--lime);background:var(--bg);border-radius:0 8px 8px 0;padding:14px 18px;margin:12px 0}
+.twister p{font-family:Georgia,serif;font-size:16.5px;margin:0 0 6px}
+.twister .tag{font-size:12px;color:var(--muted)}
+table.red{width:100%;border-collapse:collapse;font-size:14.5px;margin:10px 0}
+table.red th{text-align:left;font-size:12.5px;color:var(--muted);padding:8px 10px;border-bottom:2px solid var(--line)}
+table.red td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+table.red td.orig{font-family:Georgia,serif}
+table.red td.red{font-family:Georgia,serif;color:var(--accent);font-weight:700;white-space:nowrap}
+table.red td.ex{font-family:Georgia,serif;color:var(--muted)}
+.keys{margin:10px 0;padding-left:22px;font-size:14.5px}
+.keys li{margin-bottom:9px}
+.keys li b{color:var(--accent)}
+.words50{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0}
+.words50 .chip{font-size:13px}
+.note{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+@media(max-width:640px){
+  .method-grid{grid-template-columns:1fr}
+  .tabs{top:0}
+  .tab{flex:1;padding:11px 6px;font-size:13.5px}
+  .session-head{padding:15px 16px;gap:12px}
+  .session-body{padding:4px 16px 20px}
+  .session-time{display:none}
+  table.red{font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="back" href="index.html">← 返回英语学习</a>
+
+<div class="hero">
+  <h1>发音训练</h1>
+  <div class="sub">PRONUNCIATION WORKSHOP · 学习提炼</div>
+  <p>口音的来源，是把母语的发音规则套用到了英语上。这套训练的目标不是"减少口音"，而是给自己加装一套新的发音规则：新的口型、新的舌位、新的语音习惯。下面是按 15 个 session 整理的要点提炼。</p>
+</div>
+
+<h2 class="sec">怎么练</h2>
+<p class="sec-desc">开始之前先记住这套方法的底层逻辑，练的时候才知道自己在干什么。</p>
+<div class="method-grid">
+  <div class="method"><div class="n serif">01</div><h3>放慢</h3><p>说得很慢，给口腔肌肉重新学习的时间。新动作在慢速下才能做对。</p></div>
+  <div class="method"><div class="n serif">02</div><h3>大声</h3><p>用洪亮的声音练，气流要足。很多音（H、SH、词尾）靠气流才立得住。</p></div>
+  <div class="method"><div class="n serif">03</div><h3>夸张口型</h3><p>把嘴的动作做大。美国人说话嘴张得大、口型动作多，这是观察到的事实。</p></div>
+  <div class="method"><div class="n serif">04</div><h3>先听出错误</h3><p><b>成功的关键不是一次说对，而是能察觉</b>——"刚才那个词我说错了，应该用 TH 音"。这种 awareness 会慢慢沉淀成正确的口语习惯。</p></div>
+</div>
+<div class="method" style="margin-top:12px"><div class="n serif">节奏</div><h3>2–3 个月，每周一个 session</h3><p>每天练一点，跟着视频走。不要指望学完立刻脱口而出，先让耳朵和嘴跟上。</p></div>
+
+<details class="timeline">
+  <summary>视频时间轴（对照视频跳转）</summary>
+  <dl class="tl">
+    <dt>01:17–05:45</dt><dd>Introduction：口音的来源、练习方法、成功关键</dd>
+    <dt>05:55–22:34</dt><dd>Session 1 · R 和 W</dd>
+    <dt>22:50–44:25</dt><dd>Session 2 · 声带振动、S 和 Z</dd>
+    <dt>44:41–61:15</dt><dd>Session 3 · TH、浊化 T</dd>
+    <dt>61:28–80:21</dt><dd>Session 4 · F/V、SH 和浊 SH</dd>
+    <dt>80:25–93:20</dt><dd>Session 5 · L</dd>
+    <dt>93:30–106:35</dt><dd>Session 6 · 词尾、-ed、鼻音</dd>
+    <dt>106:48–118:02</dt><dd>Session 7 · CH、J、H</dd>
+    <dt>118:14–129:48</dt><dd>Session 8 · 元音总览、EE 和 I</dd>
+    <dt>130:00–144:42</dt><dd>Session 9 · O 和 AE</dd>
+    <dt>144:52–154:18</dt><dd>Session 10 · OO、UH、EH</dd>
+    <dt>154:29–163:09</dt><dd>Session 11 · AU、AH、A</dd>
+    <dt>163:21–176:42</dt><dd>Session 12 · 绕口令</dd>
+    <dt>176:53–190:10</dt><dd>Session 13 · 连读弱化、语调、重音</dd>
+    <dt>190:22–203:10</dt><dd>Session 14 · 综合朗读 I、10 条建议</dd>
+    <dt>203:22–225:40</dt><dd>Session 15 · 综合朗读 II、50 个常读错词</dd>
+  </dl>
+</details>
+
+<h2 class="sec">15 个 Session</h2>
+<p class="sec-desc">点击展开每个 session 的要点、规则、例词和朗读练习。</p>
+
+<div class="tabs" role="tablist">
+  <button class="tab active" data-tab="cons">辅音篇 · 1–7</button>
+  <button class="tab" data-tab="vowel">元音篇 · 8–11</button>
+  <button class="tab" data-tab="all">综合篇 · 12–15</button>
+</div>
+
+<div class="tabpanel active" id="tab-cons">
+
+<div class="session open">
+  <button class="session-head"><span class="session-num">1</span><h3>R 和 W<small>Consonant R / Consonant W</small></h3><span class="session-time">05:55–22:34</span><span class="chev">▾</span></button>
+  <div class="session-body">
+    <h4>发音要点</h4>
+    <ul>
+      <li><b>R：嘴唇向前噘</b>（像发"乌"、像要亲吻），<b>舌头往后缩</b>——不是往前顶，这是最容易做反的地方。</li>
+      <li>自测：手指伸进口腔约一英寸，发 R 时应该能碰到舌尖，说明舌头收回去了。</li>
+      <li>词尾的 R 要"收住"，把词尾发完整：car、door、poor。</li>
+      <li><b>R 组合</b>（br、tr、cr…）：R 永远是组合里最强的音；词首组合在开口前嘴唇先噘好：train、trust、break。</li>
+      <li><b>W：先练 OO，再滑成 OOOOOWAW AWA</b>。W 永远发 W 的音，不发 V（wine ≠ vine）。one、once 开头也是 W 音。</li>
+      <li>Q 读 KW：question、quiet、queen。</li>
+    </ul>
+    <h4>例词</h4>
+    <div class="chips"><span class="chip">rock</span><span class="chip">rain</span><span class="chip">road</span><span class="chip">car</span><span class="chip">door</span><span class="chip">very</span><span class="chip">everyone</span><span class="chip">train</span><span class="chip">trust</span><span class="chip">break</span><span class="chip">why</span><span class="chip">when</span><span class="chip">always</span><span class="chip">away</span></div>
+    <h4>朗读练习</h4>
+    <div class="practice">
+      <div class="sent"><p class="en">The red road runs right through the rural town.</p><p class="zh">练 R：每个 R 都把嘴唇先噘起来</p></div>
+      <div class="sent"><p class="en">We will watch the wonderful white swans.</p><p class="zh">练 W：从 OO 滑过去，不要发成 V</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="session">
+  <button class="session-head"><span class="session-num">2</span><h3>声带振动 · S 和 Z<small>Voicing, S and Z</small></h3><span class="session-time">22:50–44:25</span><span class="chev">▾</span></button>
+  <div class="session-body">
+    <h4>发音要点</h4>
+    <ul>
+      <li><b>浊音 = 声带振动</b>。手放喉咙说"啊——"，感到震动就是浊音。所有元音都是浊音，辅音分清浊。</li>
+      <li><b>清浊配对</b>（口型相同，只差声带振不振）：P–B、T–D、F–V、SH–ZSH、K–G、S–Z。</li>
+      <li>注意这些词的 S 读成 Z：is、his、as、was、these、those、easy、because。</li>
+    </ul>
+    <h4>核心规则 · S 结尾三规则</h4>
+    <div class="rule">
+      <ol>
+        <li><b>清辅音结尾</b> + 清 S：<span class="serif">cups、cats、stops</span></li>
+        <li><b>s / z / sh / ch / j 结尾</b> + iz：<span class="serif">buses、lunches、watches</span></li>
+        <li><b>元音或浊辅音结尾</b> + 浊 Z：<span class="serif">trees、dogs、days</span></li>
+      </ol>
+    </div>
+    <h4>朗读练习</h4>
+    <div class="practice">
+      <div class="sent"><p class="en">Zoe's cozy zoo has amazing zebras.</p><p class="zh">练 Z：全程保持声带振动</p></div>
+      <div class="sent"><p class="en">These days were easy because his business was busy.</p><p class="zh">注意标出的词 S 都读 Z</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="session">
+  <button class="session-head"><span class="session-num">3</span><h3>TH · 浊化 T<small>TH, Voiced T</small></h3><span class="session-time">44:41–61:15</span><span class="chev">▾</span></button>
+  <div class="session-body">
+    <h4>发音要点</h4>
+    <ul>
+      <li><b>清 TH /θ/</b>：舌尖平伸，轻轻抵住或伸出齿间，稳定气流拉长：think、bath、month。可以想成"两拍"：Th – umb。</li>
+      <li><b>浊 TH /ð/</b>：同样口型 + 声带振动：this、that、mother、breathe。</li>
+      <li>THR 组合：thread、throw、three、throat。</li>
+      <li>例外（拼 TH 却读 T）：Thomas、Thailand、Thames、thyme。</li>
+    </ul>
+    <h4>核心规则 · 浊化 T</h4>
+    <div class="rule"><b>T 夹在两个浊音</b>（多为元音）之间时，读成 D：<span class="serif">water → "wader"、better → "bedder"、butter → "budder"</span>。整个词保持浊音不断。</div>
+    <h4>朗读练习</h4>
+    <div class="practice">
+      <div class="sent"><p class="en">They thought the thirty-three theaters were thrilling.</p><p class="zh">清浊 TH 混合，注意舌尖位置</p></div>
+      <div class="sent"><p class="en">I bought better butter at the little market.</p><p class="zh">练浊化 T：better、butter、little 的 T 都读 D</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="session">
+  <button class="session-head"><span class="session-num">4</span><h3>F / V · SH / ZSH<small>F and V, Sh and Voiced SH</small></h3><span class="session-time">61:28–80:21</span><span class="chev">▾</span></button>
+  <div class="session-body">
+    <h4>发音要点</h4>
+    <ul>
+      <li><b>F / V：上牙轻咬下唇</b>，稳定气流；F 清 V 浊，口型完全一样：feel–veal、safe–save、proof–prove。</li>
+      <li><b>SH /ʃ/：嘴唇前噘</b>，上下齿微开，送气：she、shadow、shoe。注意 sugar、sure、chef、Chicago 也是 SH 音。</li>
+      <li><b>ZSH /ʒ/：SH 的口型 + 浊音</b>，美音重要音素：usual、vision、television、beige、massage。</li>
+    </ul>
+    <h4>例词</h4>
+    <div class="chips"><span class="chip">feel – veal</span><span class="chip">safe – save</span><span class="chip">fine – vine</span><span class="chip">she</span><span class="chip">sugar</span><span class="chip">chef</span><span class="chip">usual</span><span class="chip">vision</span><span class="chip">television</span><span class="chip">beige</span></div>
+    <h4>朗读练习</h4>
+    <div class="practice">
+      <div class="sent"><p class="en">Vera values very vivid photos.</p><p class="zh">练 V：咬住下唇，保持振动</p></div>
+      <div class="sent"><p class="en">She showed us the fresh fish in the shop.</p><p class="zh">练 SH：嘴唇前噘，齿微开</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="session">
+  <button class="session-head"><span class="session-num">5</span><h3>L<small>Consonant L</small></h3><span class="session-time">80:25–93:20</span><span class="chev">▾</span></button>
+  <div class="session-body">
+    <h4>发音要点</h4>
+    <ul>
+      <li><b>下巴尽量张大</b>，舌头独立上抬、舌尖触碰上齿龈后方，然后"落下放松"发出 L。练 <b>LA LA LA</b>：下巴保持不动，只有舌头在动。</li>
+      <li><b>词尾 L</b>：舌头缓慢上抬，音来自舌的"动作"而不是某个固定位置：will、ball、people。可用手指轻压下牙，帮助下巴保持张开。</li>
+      <li><b>R / L 对比</b>：red–led、rick–lick、grass–glass、free–flee。R 噘嘴舌后缩，L 张嘴舌上抬。</li>
+    </ul>
+    <h4>例词</h4>
+    <div class="chips"><span class="chip">lunch</span><span class="chip">learn</span><span class="chip">believe</span><span class="chip">solve</span><span class="chip">will</span><span class="chip">ball</span><span class="chip">small</span><span class="chip">people</span><span class="chip">control</span></div>
+    <h4>朗读练习</h4>
+    <div class="practice">
+      <div class="sent"><p class="en">Lily loves lovely little lilies.</p><p class="zh">练词首 L：下巴张大，舌独立上抬</p></div>
+      <div class="sent"><p class="en">The little lamb left the lonely lake.</p><p class="zh">练词尾 L：little、lonely、lake 的尾音收住</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="session">
+  <button class="session-head"><span class="session-num">6</span><h3>词尾 · -ed · 鼻音<small>Word Endings</small></h3><span class="session-time">93:30–106:35</span><span class="chev">▾</span></button>
+  <div class="session-body">
+    <h4>发音要点</h4>
+    <ul>
+      <li><b>词尾辅音发完整、不吞尾</b>：sleep、ship、cat、kite、club。词尾含糊是含糊感的主要来源。</li>
+      <li>鼻音 M / N / NG：-ng 结尾 ring、sing、thing、bring，舌根抬起、气流走鼻腔。</li>
+    </ul>
+    <h4>核心规则 · -ed 三规则</h4>
+    <div class="rule">
+      <ol>
+        <li><b>清辅音结尾</b> + 清 T：<span class="serif">walked、jumped</span>（读 walk-T）</li>
+        <li><b>浊辅音结尾</b> + 浊 D：<span class="serif">rubbed、cleaned、played</span>（读 rub-D）</li>
+        <li><b>T / D 结尾</b> + ed：<span class="serif">lifted、voted、handed</span></li>
+      </ol>
+    </div>
+    <h4>朗读练习</h4>
+    <div class="practice">
+      <div class="sent"><p class="en">He walked and talked, then cleaned and played.</p><p class="zh">-ed 三规则全在一句里：walked(T)、talked(T)、cleaned(D)、played(D)</p></div>
+      <div class="sent"><p class="en">The king is singing in the morning rain.</p><p class="zh">练 -ng 鼻音结尾</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="session">
+  <button class="session-head"><span class="session-num">7</span><h3>CH · J · H<small>DG and Ch, H</small></h3><span class="session-time">106:48–118:02</span><span class="chev">▾</span></button>
+  <div class="session-body">
+    <h4>发音要点</h4>
+    <ul>
+      <li><b>CH /tʃ/ 清</b>：church、cheese、lunch、teacher。</li>
+      <li><b>J /dʒ/ 浊</b>（American J）：judge、magic、village、knowledge。</li>
+      <li><b>H：词首用强气流、大声送出</b>：hand、house、happy。who、whole 的 H 不要吞掉。</li>
+    </ul>
+    <h4>朗读练习</h4>
+    <div class="practice">
+      <div class="sent"><p class="en">Charlie chose chocolate chips for lunch.</p><p class="zh">练 CH：每个 CH 都干脆利落</p></div>
+      <div class="sent"><p class="en">Henry has a happy, healthy horse.</p><p class="zh">练 H：每个 H 都用强气流送出来</p></div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /tab-cons -->
+
+<div class="tabpanel" id="tab-vowel">
+
+<div class="session open">
+  <button class="session-head"><span class="session-num">8</span><h3>元音总览 · EE 和 I<small>Vowel Overview, I and EE</small></h3><span class="session-time">118:14–129:48</span><span class="chev">▾</span></button>
+  <div class="session-body">
+    <h4>元音总览</h4>
+    <ul>
+      <li><b>前元音（高→低）</b>：EE（heat）、I（hit）、AE（hate）、EH（het）、A（hat）。</li>
+      <li><b>后元音（高→低）</b>：OO（boot）、U（book）、OW（boat）、AW（bought）、AH（bot）。</li>
+      <li><b>学元音主要靠耳朵</b>：听辨 + 跟读，先能听出差别，嘴才会跟上。</li>
+    </ul>
+    <h4>发音要点 · EE vs I</h4>
+    <ul>
+      <li><b>EE 位置高</b>：微笑、"往高处想"：see、tree、green、happy。</li>
+      <li><b>I 比 EE 低一档</b>：hit、fish、business、live。</li>
+      <li>对比：heat–hit、keen–kin、seat–sit。</li>
+    </ul>
+    <h4>朗读练习</h4>
+    <div class="practice">
+      <div class="sent"><p class="en">He sees green trees near the beach.</p><p class="zh">练 EE：微笑，位置想高</p></div>
+      <div class="sent"><p class="en">Tim will sit and sip his drink.</p><p class="zh">练 I：比 EE 低一档，不要发成 EE</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="session">
+  <button class="session-head"><span class="session-num">9</span><h3>O 和 AE<small>OW and AE</small></h3><span class="session-time">130:00–144:42</span><span class="chev">▾</span></button>
+  <div class="session-body">
+    <h4>发音要点</h4>
+    <ul>
+      <li><b>O：先练 OWE…找到位置</b>：open、phone、cold、road。</li>
+      <li><b>O 里藏着一个 W</b>：woke = WOW + K，won't = WOW + NT。对比 want / won't、woke / won't，别混。</li>
+      <li><b>AE</b>：age、able、day、face、nation、baby。</li>
+    </ul>
+    <h4>朗读练习</h4>
+    <div class="practice">
+      <div class="sent"><p class="en">Joe won't go home alone.</p><p class="zh">练 O：woke、won't 里那个隐藏的 W</p></div>
+      <div class="sent"><p class="en">The baby played in the rain all day.</p><p class="zh">练 AE：baby、rain、day、played</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="session">
+  <button class="session-head"><span class="session-num">10</span><h3>OO · UH · EH<small>OO, UH, EH</small></h3><span class="session-time">144:52–154:18</span><span class="chev">▾</span></button>
+  <div class="session-body">
+    <h4>发音要点</h4>
+    <ul>
+      <li><b>OO 位置高</b>：food、moon、school，嘴噘圆。</li>
+      <li><b>UH 位置低</b>：foot、book、good。注意：<b>很多双写 OO 的词读的是 UH</b>：foot、took、look、wool。</li>
+      <li>对比：food–foot、fool–full。</li>
+      <li><b>EH</b>：egg、get、friend、red。</li>
+    </ul>
+    <h4>朗读练习</h4>
+    <div class="practice">
+      <div class="sent"><p class="en">The cool moon looks good tonight.</p><p class="zh">OO 和 UH 混排：cool/moon 高，looks/good 低</p></div>
+      <div class="sent"><p class="en">Ben met ten friends at the red fence.</p><p class="zh">练 EH：met、ten、red、fence</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="session">
+  <button class="session-head"><span class="session-num">11</span><h3>AU · AH · A<small>AU, AH, A</small></h3><span class="session-time">154:29–163:09</span><span class="chev">▾</span></button>
+  <div class="session-body">
+    <h4>发音要点</h4>
+    <ul>
+      <li><b>A</b>：hat、apple、dad、catch，嘴张大。</li>
+      <li><b>AU：从 A 起音，嘴向前滑成小 W</b>：downtown 读成 "DA-wn TA-wn"；house、out、mouth、south。发错容易被误解，是重点音。</li>
+      <li><b>AH</b>：hot、top、stop、problem（字母 o 常读这个音）。</li>
+      <li><b>Are vs Our</b>：Are 结尾收强 R；Our = AU-WERE，两个音节；hour 同音。</li>
+    </ul>
+    <h4>朗读练习</h4>
+    <div class="practice">
+      <div class="sent"><p class="en">Our house is south of downtown.</p><p class="zh">练 AU：our、house、south、downtown</p></div>
+      <div class="sent"><p class="en">Are you going to our house?</p><p class="zh">Are（强 R 收尾）vs our（AU-WERE 两音节）</p></div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /tab-vowel -->
+
+<div class="tabpanel" id="tab-all">
+
+<div class="session open">
+  <button class="session-head"><span class="session-num">12</span><h3>绕口令<small>Tongue Twisters</small></h3><span class="session-time">163:21–176:42</span><span class="chev">▾</span></button>
+  <div class="session-body">
+    <h4>用法</h4>
+    <ul><li>先慢后快，保持夸张口型。练的不是速度，是肌肉记忆——慢速做对了，快速才会对。</li></ul>
+    <div class="twister"><p>Fuzzy Wuzzy was a bear, Fuzzy Wuzzy had no hair.<br>Fuzzy Wuzzy wasn't fuzzy, was he?</p><div class="tag">练 F / W / 浊 Z</div></div>
+    <div class="twister"><p>Peter Piper picked a peck of pickled peppers.<br>A peck of pickled peppers Peter Piper picked.<br>If Peter Piper picked a peck of pickled peppers, how many peppers did Peter Piper pick?</p><div class="tag">练 P</div></div>
+    <div class="twister"><p>She sells seashells by the seashore.<br>The shells she sells are surely seashells.<br>So if she sells shells on the seashore, I'm sure she sells seashore shells.</p><div class="tag">练 SH / S / Z</div></div>
+    <div class="twister"><p>How much wood would a woodchuck chuck if a woodchuck could chuck wood?<br>He would chuck, he would, as much as he could, and chuck as much wood as a woodchuck would if a woodchuck could chuck wood.</p><div class="tag">练 W / CH / 词尾</div></div>
+    <div class="twister"><p>Which witch wished which wicked wish?</p><div class="tag">练 W</div></div>
+    <div class="twister"><p>Roberta ran rings around the Roman ruins.</p><div class="tag">练 R</div></div>
+  </div>
+</div>
+
+<div class="session">
+  <button class="session-head"><span class="session-num">13</span><h3>连读弱化 · 语调 · 重音<small>Phrase Reductions, Intonation</small></h3><span class="session-time">176:53–190:10</span><span class="chev">▾</span></button>
+  <div class="session-body">
+    <h4>连读弱化</h4>
+    <p style="font-size:14px;color:var(--muted);margin:0 0 4px">口语里高频短语会被"压缩"，听懂它们才能跟上正常语速。</p>
+    <table class="red">
+      <tr><th>原形</th><th>口语</th><th>例句</th></tr>
+      <tr><td class="orig">going to</td><td class="red">gonna</td><td class="ex">I'm gonna finish this book.</td></tr>
+      <tr><td class="orig">want to</td><td class="red">wanna</td><td class="ex">Do you wanna eat at seven?</td></tr>
+      <tr><td class="orig">have to</td><td class="red">hafta</td><td class="ex">I hafta start a diet tomorrow.</td></tr>
+      <tr><td class="orig">got to</td><td class="red">gotta</td><td class="ex">I gotta leave in fifteen minutes.</td></tr>
+      <tr><td class="orig">did you</td><td class="red">didja</td><td class="ex">Didja go to the store?</td></tr>
+      <tr><td class="orig">what do you</td><td class="red">whadaya</td><td class="ex">Whadaya want for lunch?</td></tr>
+      <tr><td class="orig">ought to</td><td class="red">oughta</td><td class="ex">She oughta believe him.</td></tr>
+    </table>
+    <h4>语调</h4>
+    <ul><li>同一句话，重读不同的词，意思就不同。用对比句练："Joe drinks <b>cheap</b> wine." / "Sue only drinks <b>expensive</b> wine."——注意重音落在哪，听者在听什么。</li></ul>
+    <h4>重音规律</h4>
+    <ul>
+      <li><b>双音节词多重读第一音节</b>：sofa、oven、father、children。</li>
+      <li><b>三音节词多重读第二音节</b>：reduction、companion、arrangement。</li>
+    </ul>
+  </div>
+</div>
+
+<div class="session">
+  <button class="session-head"><span class="session-num">14</span><h3>综合朗读 I · 10 条建议<small>Reading Passages</small></h3><span class="session-time">190:22–203:10</span><span class="chev">▾</span></button>
+  <div class="session-body">
+    <h4>怎么做</h4>
+    <ul><li>找英文段落，<b>每天大声朗读 10–15 分钟</b>，把前面学到的规则用进去：R、TH、词尾、-ed、重音……读的时候保持 awareness，听出自己的错误。</li></ul>
+    <h4>10 条建议</h4>
+    <ol class="keys">
+      <li><b>每天练，每天听</b>——量比单次时长重要。</li>
+      <li><b>词尾不要吞掉</b>，发完整。</li>
+      <li>整理一份<b>自己的高频词清单</b>，逐个攻克。</li>
+      <li>说英语时<b>嘴张大一点</b>。</li>
+      <li><b>别怕开口说</b>，错了才有得改。</li>
+      <li>每天大声朗读 10–15 分钟。</li>
+      <li><b>录下自己的声音</b>，回听找错误。</li>
+      <li>观察母语者的口型并模仿。</li>
+      <li>跟读有声读物（books on tape）。</li>
+      <li><b>耐心</b>——改掉旧习惯需要时间。</li>
+    </ol>
+  </div>
+</div>
+
+<div class="session">
+  <button class="session-head"><span class="session-num">15</span><h3>综合朗读 II · 50 个常读错词<small>Reading Passages</small></h3><span class="session-time">203:22–225:40</span><span class="chev">▾</span></button>
+  <div class="session-body">
+    <h4>50 个常读错的词</h4>
+    <p style="font-size:14px;color:var(--muted);margin:0">逐个查音标、跟读，注意重音和词尾。很多是商务高频词。</p>
+    <div class="words50">
+      <span class="chip">accounting</span><span class="chip">argue</span><span class="chip">actually</span><span class="chip">available</span><span class="chip">arrangements</span><span class="chip">basically</span><span class="chip">business</span><span class="chip">calls</span><span class="chip">complete</span><span class="chip">continue</span><span class="chip">contribute</span><span class="chip">corporation</span><span class="chip">differences</span><span class="chip">directly</span><span class="chip">exactly</span><span class="chip">educational</span><span class="chip">every</span><span class="chip">exceptional</span><span class="chip">familiar</span><span class="chip">financial</span><span class="chip">frustrating</span><span class="chip">general</span><span class="chip">immediately</span><span class="chip">inconvenience</span><span class="chip">introduce</span><span class="chip">irrational</span><span class="chip">justice</span><span class="chip">likeable</span><span class="chip">loosen</span><span class="chip">measurements</span><span class="chip">middle</span><span class="chip">multiple</span><span class="chip">national</span><span class="chip">original</span><span class="chip">outrageous</span><span class="chip">particular</span><span class="chip">partnership</span><span class="chip">problem</span><span class="chip">prohibit</span><span class="chip">quality</span><span class="chip">question</span><span class="chip">referring</span><span class="chip">regardless</span><span class="chip">request</span><span class="chip">similar</span><span class="chip">specific</span><span class="chip">value</span><span class="chip">visualize</span><span class="chip">vulnerable</span><span class="chip">working</span>
+    </div>
+  </div>
+</div>
+
+</div><!-- /tab-all -->
+
+<p class="note">本页为个人学习提炼笔记，按 Pronunciation Workshop 课程结构整理：要点为自主归纳的中文讲解，朗读练习句为原创，绕口令为传统英文童谣。建议配合视频按 session 顺序练习。</p>
+
+</div><!-- /wrap -->
+
+<script>
+(function(){
+  document.querySelectorAll('.tab').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      document.querySelectorAll('.tab').forEach(function(x){x.classList.toggle('active',x===btn)});
+      document.querySelectorAll('.tabpanel').forEach(function(x){x.classList.toggle('active',x.id==='tab-'+btn.dataset.tab)});
+      window.scrollTo(0,0);
+    });
+  });
+  document.querySelectorAll('.session-head').forEach(function(head){
+    head.addEventListener('click',function(){
+      head.parentElement.classList.toggle('open');
+    });
+  });
+})();
+</script>
+</body>
+</html>
