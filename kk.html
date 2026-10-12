@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<meta name="theme-color" content="#f3f1ec" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#171916" media="(prefers-color-scheme: dark)" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<link rel="manifest" href="manifest.webmanifest?v=4ad3336eb8" />
+<link rel="icon" href="icons/icon-192.png?v=c60cdbd991" type="image/png" />
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=d29ffb3756" />
+<title>KK 音标课 · 英语学习</title>
+<style>
+:root{color-scheme:light dark;--bg:#f3f1ec;--panel:#fffefa;--panel-2:#ebe8df;--ink:#1d211d;--muted:#64675f;--line:#d4d0c6;--accent:#e45a35;--accent-soft:#ffe2d6;--lime:#d5eb74;--lime-ink:#273000}
+@media(prefers-color-scheme:dark){:root{--bg:#171916;--panel:#21241f;--panel-2:#2a2d27;--ink:#f4f1e8;--muted:#b8bbb1;--line:#3b3e36;--accent:#ff7652;--accent-soft:#4a2920;--lime:#bfd35e;--lime-ink:#1d2500}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans","Doulos SIL","Charis SIL",sans-serif;line-height:1.7}
+.wrap{max-width:940px;margin:0 auto;padding:28px clamp(16px,4vw,40px) 90px}
+.back{display:inline-flex;gap:8px;color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;margin-bottom:26px}.back:hover{color:var(--ink)}
+.hero h1{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:clamp(36px,5.5vw,60px);font-weight:400;letter-spacing:-.03em;line-height:1.05}
+.hero .sub{color:var(--accent);font-weight:700;font-size:14px;margin:14px 0 6px;letter-spacing:.06em}
+.hero p{color:var(--muted);max-width:660px;margin:0 0 8px;font-size:15px}.hero a{color:var(--accent)}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin:26px 0 18px;position:sticky;top:0;background:var(--bg);z-index:5;padding-top:8px}
+.tab{border:0;background:transparent;padding:12px 16px;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-1px;font-weight:700;font-size:15px}.tab.active{color:var(--ink);border-color:var(--accent)}
+.panel{display:none}.panel.active{display:block}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 10px}.toc a{font-size:13px;text-decoration:none;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:99px;padding:5px 12px}.toc a:hover{background:var(--panel-2)}
+.doc h2{font-family:Georgia,"Times New Roman",serif;font-size:28px;font-weight:400;letter-spacing:-.02em;margin:46px 0 12px;scroll-margin-top:64px}.doc h3{scroll-margin-top:64px}
+.doc h3{font-size:17px;margin:26px 0 8px;padding:12px 16px;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--lime);border-radius:8px}
+.doc h4{font-size:15px;margin:18px 0 6px}
+.doc p,.doc li{font-size:15px}.doc ul,.doc ol{padding-left:22px}.doc li{margin:3px 0}
+.doc strong{color:var(--ink)}.doc hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+.doc blockquote{margin:12px 0;padding:8px 16px;border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 8px 8px 0}
+.doc code{font-family:inherit;background:var(--panel-2);padding:1px 5px;border-radius:4px}
+.tbl{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:10px;background:var(--panel);-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:560px}th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--panel-2);font-weight:700;white-space:nowrap}tr:last-child td{border-bottom:0}
+td:first-child{white-space:nowrap;font-weight:600}
+a.ts{color:var(--accent);text-decoration:none;font-family:Georgia,serif;font-weight:400}a.ts:hover{text-decoration:underline}
+.q{color:var(--accent);font-weight:700;cursor:help}
+.note{font-size:13px;color:var(--muted);border-top:1px solid var(--line);margin-top:40px;padding-top:14px}
+@media(max-width:600px){.doc h2{font-size:24px}.tab{padding:10px 12px;font-size:14px}table{font-size:13px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="index.html">← 返回英语学习</a>
+<div class="hero">
+  <h1>KK 音标课</h1>
+  <div class="sub">周育如老师 · 透过字母学音标</div>
+  <p>按 <a href="https://www.youtube.com/watch?v=eLSOXxHa8Ps" target="_blank" rel="noopener">YouTube《K.K 音標英文教學（自然發音）》</a>（约 1:55:03，连续四堂课）逐段整理：顺序、口诀、例词和作业都照老师课堂。点时间戳可直接跳到视频对应位置。另附 KK 音标与现代国际音标（IPA）的对照。</p>
+</div>
+<div class="tabs" role="tablist"><button class="tab active" data-p="lesson" role="tab">课堂教案</button><button class="tab" data-p="ipa" role="tab">KK 与 IPA 对照</button></div>
+<section class="panel active" id="lesson"><nav class="toc"><a href="#a-0">使用说明</a><a href="#a-1">全课总览</a><a href="#a-2">第一堂</a><a href="#a-3">第二堂</a><a href="#a-4">第三堂</a><a href="#a-5">第四堂</a><a href="#a-6">附录一</a><a href="#a-7">附录二</a><a href="#a-8">附录三</a></nav><div class="doc"><h2 id="a-0">使用说明</h2>
+<ul>
+<li><strong>整理原则</strong>：完全按视频课堂的顺序、讲法、口诀与例词整理，不替换成其它教法。老师原话以「」引用（据语音转写校正为通顺的简体中文，保留口语和口诀原味）。</li>
+<li><strong>时间戳</strong>：h:mm:ss，取自视频转写，误差约 ±10 秒。</li>
+<li><strong>音标</strong>：方括号内是老师板书/海报上的 KK 音标。转写只有声音、看不到黑板，因此音标符号是<strong>根据老师的读音、拼读过程和 KK 惯例还原</strong>的，并与网上流传的同一课口诀笔记（视频字幕节选、学习笔记）核对过；仍不确定之处标 <strong><span class="q" title="转写不清或看不到板书">[?]</span></strong>。</li>
+<li><strong><span class="q" title="转写不清或看不到板书">[?]</span></strong>：转写听不清、或无法从声音确定板书内容的地方。</li>
+<li>视频实际是<strong>连续四堂课</strong>的剪辑（第三堂以「Good morning」开场），教案据此分为四个单元。课堂中老师多次点名学生抽问，教案只记为「点名抽问」，不记学生姓名。</li>
+</ul>
+<h2 id="a-1">全课总览</h2>
+<div class="tbl"><table>
+<thead>
+<tr class="header">
+<th>单元</th>
+<th>时间</th>
+<th>主题</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>第一堂</td>
+<td>0:00:00–0:28:25</td>
+<td>为什么学音标、学习目标；字母口诀 A–N（含 L/M/N 字前字后两种念法）</td>
+</tr>
+<tr class="even">
+<td>第二堂</td>
+<td>0:28:25–0:57:33</td>
+<td>抽背 A–N；字母口诀 O–Z（含 R 字前字后）；用口诀直接拼读生字（音标学会 50%）</td>
+</tr>
+<tr class="odd">
+<td>第三堂</td>
+<td>0:57:33–约 1:27:46</td>
+<td>子音字母「照抄」、母音字母「二选一」、重音节与非重音节；规则一（字尾 e 不发音）、规则二（母音 + r）</td>
+</tr>
+<tr class="even">
+<td>第四堂</td>
+<td>约 1:27:46–1:55:03</td>
+<td>复习；规则三（oo）、规则四（au/ou/aw/ow）、规则五（th/ch/sh/ph/ng/nk）；用第二课单字验证；作业</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="a-2">第一堂（0:00:00–0:28:25）</h2>
+<h3 id="环节-1-导入为什么要学音标0000000225">环节 1　导入：为什么要学音标（<a class="ts" href="https://www.youtube.com/watch?v=eLSOXxHa8Ps&t=0s" target="_blank" rel="noopener">0:00:00</a>–0:02:25）</h3>
+<p><strong>教学目标</strong>：让学生明白音标就是「英文的注音符号」，而且英文的音标和字母关系密切。</p>
+<p><strong>老师讲解要点</strong></p>
+<ul>
+<li>先在黑板写一个中文字（「我」）问学生怎么知道念「我」——是学过才知道的；再写一个没学过的字 <span class="q" title="转写不清或看不到板书">[?]</span>，学生就不会念：「中文这个字你如果没学过，你就不知道它怎么念，从字形看不出来」，虽然有「有边读边、没边念中间」，还是猜不出来。</li>
+<li>「中文里面你要认识一个字怎么念，你透过什么？对，透过注音符号。」</li>
+<li>再看英文：book 是老师教过才会念；换一个没学过的英文字 <span class="q" title="转写不清或看不到板书">[?]</span>，「挂掉了」。</li>
+<li>但「英文比中文好一点的地方」：「英文透过字母，你可以去大概猜测它可能会怎么发音。中文有注音符号，英文也有注音符号，而且英文的注音符号跟这个字的字母息息相关。」</li>
+<li>「从这节课开始我要教你音标。音标是干嘛的？告诉你英文这个字怎么念。」</li>
+</ul>
+<p><strong>例词</strong>：book；（板书中文字「我」及一个生僻字 <span class="q" title="转写不清或看不到板书">[?]</span>，另一个英文生字 <span class="q" title="转写不清或看不到板书">[?]</span>）</p>
+<h3 id="环节-2-不要被发音器官图吓到本阶段的目标0022500543">环节 2　不要被「发音器官图」吓到；本阶段的目标（<a class="ts" href="https://www.youtube.com/watch?v=eLSOXxHa8Ps&t=145s" target="_blank" rel="noopener">0:02:25</a>–0:05:43）</h3>
+<p><strong>教学目标</strong>：消除对音标的恐惧，明确国中阶段的要求。</p>
+<p><strong>老师讲解要点</strong></p>
+<ul>
+<li>很多人一听要学音标就去买参考书、上补习班，第一页就是「发音器官图」，每个音标配一段说明，比如「先紧闭双唇，然后再突然放开双唇，让口腔内的气息爆发而出，产生一种爆裂的音」——「你看得懂吗？看不懂。」</li>
+<li>老师还会说「母音有 17 个、子音有 24 个」，「还有长母音、短母音，子音还有有声子音、无声子音」，「一下爆裂音、一下塞擦音，一下流音、侧音、边音」。全部背完了，「一个字给你，还是不知道怎么念」，「我当学生的时候也是这样」。</li>
+<li>「这些东西你不要理它。等到以后你上大学、上研究所，像老师这样对语音学有兴趣，你再来学，还来得及。」</li>
+<li><strong>国中阶段的要求只有一件事</strong>：「一个单字给你，你大概可以把它的音标写出来，然后可以念得出来；一个音标给你，你大概可以念得出来，知道这是什么字，然后把那个单字写出来。」</li>
+<li>「现在你跟着我学，用最简单的方式来学，你可以把音标学得很好。」</li>
+</ul>
+<h3 id="环节-3-方法透过字母来学音标0054300610">环节 3　方法：透过字母来学音标（<a class="ts" href="https://www.youtube.com/watch?v=eLSOXxHa8Ps&t=343s" target="_blank" rel="noopener">0:05:43</a>–0:06:10）</h3>
+<p><strong>老师讲解要点</strong></p>
+<ul>
+<li>先请全班把 26 个字母念一遍（A B C … Z）。</li>
+<li>「我们现在透过字母来学音标。我们不要记音标再回去看字母，我们透过字母来学音标。」</li>
+</ul>
+<p><strong>口诀格式</strong>（全课一致）：<strong>字母名 字母名 + 音 音</strong>，例如「A A [æ] [æ]」「B B [b] [b]」。每教一个新字母，都要<strong>从 A 开始从头累积复诵</strong>（老师口头禅：「又从头来」「预备，来」）。</p>
+<h3 id="环节-4-字母口诀-ak0061001634">环节 4　字母口诀 A–K（<a class="ts" href="https://www.youtube.com/watch?v=eLSOXxHa8Ps&t=370s" target="_blank" rel="noopener">0:06:10</a>–0:16:34）</h3>
+<p><strong>教学目标</strong>：记住 A–K 每个字母配的音，能连贯复诵。</p>
+<div class="tbl"><table>
+<thead>
+<tr class="header">
+<th>字母</th>
+<th>口诀（老师怎么念）</th>
+<th>KK</th>
+<th>老师的提示 / 原话</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>A A 欸 欸</td>
+<td>[æ]</td>
+<td>「把你的嘴巴裂开一点」「难听一点」「再丑一点」</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>B B 波 波</td>
+<td>[b]</td>
+<td>（只示范读音）</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>C C 可 可（咳 咳）</td>
+<td>[k]</td>
+<td>「里面有一个 k」；「不要有尾巴的元音」<span class="q" title="转写不清或看不到板书">[?]</span>（原话转写不清）</td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td>D D 的 的</td>
+<td>[d]</td>
+<td>「滴滴的的」「你的、我的那个『的』」</td>
+</tr>
+<tr class="odd">
+<td>E</td>
+<td>E E 欸 欸</td>
+<td>[ɛ]</td>
+<td>（与 A 对比见环节 5）</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>F F（只送气）</td>
+<td>[f]</td>
+<td>「上面的牙齿轻轻咬住你下面的嘴唇」</td>
+</tr>
+<tr class="odd">
+<td>G</td>
+<td>G G 个 个</td>
+<td>[g]</td>
+<td>「一个、两个、三个那个『个』」</td>
+</tr>
+<tr class="even">
+<td>H</td>
+<td>H H 喝 喝</td>
+<td>[h]</td>
+<td>「ㄍㄎㄏ（歌科喝）那个『喝』」；后来又说「喝东西的那个『喝』」</td>
+</tr>
+<tr class="odd">
+<td>I</td>
+<td>I I 依 依</td>
+<td>[ɪ]</td>
+<td>「短短的」</td>
+</tr>
+<tr class="even">
+<td>J</td>
+<td>J J 句 句</td>
+<td>[dʒ]</td>
+<td>「就像那个句子的『句』」（字幕作「聚」）</td>
+</tr>
+<tr class="odd">
+<td>K</td>
+<td>K K 可 可</td>
+<td>[k]</td>
+<td>「跟 C 一样」</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>练习 / 跟读</strong></p>
+<ul>
+<li>每加一个字母就从 A 从头念（0:07:06 起反复）。</li>
+<li>倒着念：「G G、F F、E E、D D、C C、B B、A A」（0:10:25）。</li>
+<li>点名抽问：「C C 什么？」「J J 什么？」「H H 是什么？」学生答错时老师再示范「像歌科喝的那个喝」（0:12:50–0:13:20）。</li>
+</ul>
+<h3 id="环节-5-辨音a-æ-和-e-ɛ-有什么不一样0151201634">环节 5　辨音：A [æ] 和 E [ɛ] 有什么不一样（<a class="ts" href="https://www.youtube.com/watch?v=eLSOXxHa8Ps&t=912s" target="_blank" rel="noopener">0:15:12</a>–0:16:34）</h3>
+<p><strong>老师讲解要点</strong></p>
+<ul>
+<li>「你听我念：E E [ɛ]，A A [æ]，有什么不一样？——嘴型不一样。」</li>
+<li>学生说「字母不一样」，老师：「废话！我要问你我的念法有什么不一样。」</li>
+<li>A [æ] 是「很难看的那个欸」，嘴巴开得比较开、往两边裂；E [ɛ] 嘴型较小 <span class="q" title="转写不清或看不到板书">[?]</span>（转写为「这个我开得比较开，嘴巴比较扁」，指哪一个无法完全确定）。</li>
+<li>跟读：「A A [æ] [æ]，再丑一点」「E E [ɛ] [ɛ]，不用那么丑了」；再串 I I [ɪ]。</li>
+</ul>
+<h3 id="环节-6-lmn字前字后两种念法0163402630">环节 6　L、M、N：字前、字后两种念法（<a class="ts" href="https://www.youtube.com/watch?v=eLSOXxHa8Ps&t=994s" target="_blank" rel="noopener">0:16:34</a>–0:26:30）</h3>
+<p><strong>教学目标</strong>：掌握 L/M/N 在字首（字的前面）和字尾（字的后面）的不同读法。</p>
+<p><strong>老师讲解要点</strong>：「这三个字母每一个有两个念法。」</p>
+<div class="tbl"><table>
+<thead>
+<tr class="header">
+<th>字母</th>
+<th>位置</th>
+<th>口诀</th>
+<th>KK</th>
+<th>老师原话</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>L</td>
+<td>字前</td>
+<td>L L 了 了（勒 勒）</td>
+<td>[l]</td>
+<td>「就像注音符号那个ㄌ（了）一样，或是快乐的『乐』，随便啦」</td>
+</tr>
+<tr class="even">
+<td>L</td>
+<td>字后</td>
+<td>L L 喔 喔（嗷 嗷）</td>
+<td>[l]</td>
+<td>「万一很不幸，这个 L 不是在字的前面，在一个字的后面……请你念作喔喔」；例字 <span class="q" title="转写不清或看不到板书">[?]</span>（转写为「比如说你学过……」）</td>
+</tr>
+<tr class="odd">
+<td>M</td>
+<td>字前</td>
+<td>M M 么 么</td>
+<td>[m]</td>
+<td>「在一个字的前面的时候，请你念 MM（么么）」</td>
+</tr>
+<tr class="even">
+<td>M</td>
+<td>字后</td>
+<td>M M 嗯 嗯</td>
+<td>[m]</td>
+<td>「嘴巴闭起来，然后鼻音」</td>
+</tr>
+<tr class="odd">
+<td>N</td>
+<td>字前</td>
+<td>N N 呢 呢</td>
+<td>[n]</td>
+<td>「你这个人怎么这个样子呢——那个『呢』」</td>
+</tr>
+<tr class="even">
+<td>N</td>
+<td>字后</td>
+<td>N N 嗯 嗯</td>
+<td>[n]</td>
+<td>「嗯，然后嘴巴开开，有一点鼻音」</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>M 与 N 在字后的对比</strong>（0:22:00）：「M 在字的后面要念嗯嗯，嘴巴闭起来的，鼻音；N 在字后面也是鼻音，可是嘴巴开开的。」——同一个符号，字前、字后只是读法不同，板书音标仍是 [l]、[m]、[n]。</li>
+<li><strong>跟读程序</strong>：先念 L 的两种，再念 M，再念 N；「先想看 L 前面是什么、后面是什么，想一遍」；之后从 A 串到 N。</li>
+<li>0:24:09 起「给你 5 秒钟自己想一遍」，接着逐一点名抽问（「L 在前面？」「M 如果在后面呢？要不要闭起来？」「N 呢？」）。</li>
+</ul>
+<h3 id="环节-7-第一堂作业0263002825">环节 7　第一堂作业（<a class="ts" href="https://www.youtube.com/watch?v=eLSOXxHa8Ps&t=1590s" target="_blank" rel="noopener">0:26:30</a>–0:28:25）</h3>
+<ul>
+<li>「这些字请你抄在课本的封皮上，永志不忘。」</li>
+<li>「早上起来眼睛一打开，马上就 A A [æ] [æ]、B B [b] [b]……念三遍；晚上睡觉前再念三遍才可以睡觉。」</li>
+<li>「明天上课我要抽背，从 A 一直到 N。」「不是一遍两遍，念个 30 遍、40 遍、50 遍。」</li>
+<li>下课前全班再从 A 念到 N。</li>
+</ul>
+<hr />
+<h2 id="a-3">第二堂（0:28:25–0:57:33）</h2>
+<h3 id="环节-8-复习抽背-an0282503143">环节 8　复习抽背 A–N（<a class="ts" href="https://www.youtube.com/watch?v=eLSOXxHa8Ps&t=1705s" target="_blank" rel="noopener">0:28:25</a>–0:31:43）</h3>
+<ul>
+<li>全班背一次，再「一个一个来」点名，每人接着念一段（如「E E [ɛ]、F F [f]、G G [g]、H H [h]」）。</li>
+<li>「这个很厉害，是（老师）独创的耶……待会儿你就知道，大大的好用。」</li>
+<li>要求「速度慢一点，不要打混，念清楚」。</li>
+</ul>
+<h3 id="环节-9-字母口诀-oz0314304756">环节 9　字母口诀 O–Z（<a class="ts" href="https://www.youtube.com/watch?v=eLSOXxHa8Ps&t=1903s" target="_blank" rel="noopener">0:31:43</a>–0:47:56）</h3>
+<p><strong>教学目标</strong>：完成 26 个字母的口诀。</p>
+<div class="tbl"><table>
+<thead>
+<tr class="header">
+<th>字母</th>
+<th>口诀</th>
+<th>KK</th>
+<th>老师的提示 / 原话</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>O</td>
+<td>O O 啊 啊</td>
+<td>[ɑ]</td>
+<td>嘴巴张大；后来对比 U 时说「O O，嘴唇张大一点」</td>
+</tr>
+<tr class="even">
+<td>P</td>
+<td>P P（只送气）</td>
+<td>[p]</td>
+<td>「很像 Po Po 那个 Po」（即注音ㄆ的气音）<span class="q" title="转写不清或看不到板书">[?]</span></td>
+</tr>
+<tr class="odd">
+<td>Q</td>
+<td>Q Q 阔 阔</td>
+<td>[kw]</td>
+<td>「Q 比较奇怪」；「阔——楚天阔的阔、宽阔的阔」；板书写「你学过的 k」再加 w（念「屋」），「所以这个音会变成很像『可屋』，连起来就变成『阔』」</td>
+</tr>
+<tr class="even">
+<td>R</td>
+<td>R R 若 若（字前）</td>
+<td>[r]</td>
+<td>「如果 R 在一个字的前面……好像天涯若比邻的那个『若』」</td>
+</tr>
+<tr class="odd">
+<td>R</td>
+<td>R R 儿 儿（字后）</td>
+<td>[r] <span class="q" title="转写不清或看不到板书">[?]</span></td>
+<td>「万一很不幸，它跑到字的后面去了……请你念作『而』，有没有学过？卷舌音」；「要卷舌」（字后板书符号转写无法确认，KK 惯例写 [r]）</td>
+</tr>
+<tr class="even">
+<td>S</td>
+<td>S S 丝 丝</td>
+<td>[s]</td>
+<td>（转写为「SS 有两种」<span class="q" title="转写不清或看不到板书">[?]</span>，内容不清）</td>
+</tr>
+<tr class="odd">
+<td>T</td>
+<td>T T（只送气）</td>
+<td>[t]</td>
+<td>「ㄅㄆㄇㄈ……有一个『ㄊ』，就是那个音」</td>
+</tr>
+<tr class="even">
+<td>U</td>
+<td>U U 阿 阿</td>
+<td>[ʌ]</td>
+<td>「嘴巴半开的喔」；与 O 对比：「O 是嘴巴很大的」</td>
+</tr>
+<tr class="odd">
+<td>V</td>
+<td>V V（有声）</td>
+<td>[v]</td>
+<td>「我上面的牙齿轻轻咬住下面的嘴唇」</td>
+</tr>
+<tr class="even">
+<td>W</td>
+<td>W W 屋 屋</td>
+<td>[w]</td>
+<td>（只示范读音）</td>
+</tr>
+<tr class="odd">
+<td>X</td>
+<td>X X 可死 可死</td>
+<td>[ks]</td>
+<td>「我念的是『可』跟『死』……『可』发无声的」；「不是 SS，是 XX」</td>
+</tr>
+<tr class="even">
+<td>Y</td>
+<td>Y Y 耶 耶</td>
+<td>[j]</td>
+<td>（只示范读音）</td>
+</tr>
+<tr class="odd">
+<td>Z</td>
+<td>Z Z（有声）</td>
+<td>[z]</td>
+<td>「咬牙切齿哦」</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>练习 / 跟读</strong>：每教一个就「从 O 开始」再念；教完 Z 后从 Z 倒着念到 O（0:44:05），再从 O 顺念到 Z，最后「从头开始」A 念到 Z；「想三秒钟，那些你不太会念的想清楚」。0:45:58–0:47:26 再次点名抽问（Q、M 前后、G、H、J、K、O、P、R……）。</p>
+<h3 id="环节-10-口诀有什么用直接拼读生字0482505543">环节 10　口诀有什么用：直接拼读生字（<a class="ts" href="https://www.youtube.com/watch?v=eLSOXxHa8Ps&t=2905s" target="_blank" rel="noopener">0:48:25</a>–0:55:43）</h3>
+<p><strong>教学目标</strong>：让学生体会「背完口诀，音标就学了 50%」。</p>
+<p><strong>老师讲解要点</strong></p>
+<ul>
+<li>「你背这个要干什么？跟你背着玩的？不是喔。这个东西背完之后，你音标就学了 50% 了。50% 的字给你，管你认不认识，你就可以念得出来，而且都不会念错。」</li>
+<li>做法：把每个字母换成口诀里的音，写下来，连起来念。</li>
+</ul>
+<p><strong>例词（板书拼读过程）</strong></p>
+<div class="tbl"><table>
+<thead>
+<tr class="header">
+<th>单字</th>
+<th>老师的拼读</th>
+<th>KK</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>desk（上一课学过）</td>
+<td>D D [d]、E E [ɛ]、S S [s]、K K [k]，连起来</td>
+<td>[dɛsk]</td>
+</tr>
+<tr class="even">
+<td>cat</td>
+<td>C C「可可」、A A [æ]、T T [t]：「可 A」→ cat</td>
+<td>[kæt]</td>
+</tr>
+<tr class="odd">
+<td>box</td>
+<td>B B [b]、O O [ɑ]、X X「可斯」</td>
+<td>[bɑks]</td>
+</tr>
+<tr class="even">
+<td>bed（转写作「Bad」，按板书字母 B-E-D 校正）<span class="q" title="转写不清或看不到板书">[?]</span></td>
+<td>B B [b]、E E [ɛ]、D D [d]</td>
+<td>[bɛd]</td>
+</tr>
+<tr class="odd">
+<td>spot</td>
+<td>S S [s]、P P [p]、O O [ɑ]、T T [t]</td>
+<td>[spɑt]</td>
+</tr>
+<tr class="even">
+<td>flag</td>
+<td>F F [f]、L（「L 在前面要念『了』」）、A A [æ]、G G [g]</td>
+<td>[flæg]</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>「不认识也会念，这样才叫做厉害」；「以后出去跟同学炫一炫」。</li>
+<li>小结（0:55:13）：「你光是学会这套口诀之后，很多很多的字只要给你，你音标马上就写出来、就念出来，而且都不会出差错……这个地方是大概音标 50%，你已经学会了。」</li>
+</ul>
+<h3 id="环节-11-第二堂作业0554305733">环节 11　第二堂作业（<a class="ts" href="https://www.youtube.com/watch?v=eLSOXxHa8Ps&t=3343s" target="_blank" rel="noopener">0:55:43</a>–0:57:33）</h3>
+<ul>
+<li>全班从头念一次 A–Z。</li>
+<li>「每天早上眼睛一张开念三次，晚上要睡觉了再念三遍；只有六次不够，三餐也念。」「这套音标口诀多念几遍，对你非常有帮助。」</li>
+</ul>
+<hr />
+<h2 id="a-4">第三堂（0:57:33–约 1:27:46）</h2>
+<h3 id="环节-12-复习口诀海报-az0573305920">环节 12　复习：口诀海报 A–Z（<a class="ts" href="https://www.youtube.com/watch?v=eLSOXxHa8Ps&t=3453s" target="_blank" rel="noopener">0:57:33</a>–0:59:20）</h3>
+<ul>
+<li>以「Good morning」开场；回顾：两节课都在讲音标——先把 26 个字母列出来，每个字母配一个发音；再写一些字让学生猜。</li>
+<li>「我现在把它写成一张海报」，全班慢慢地念 A–Z。</li>
+</ul>
+<h3 id="环节-13-第一张海报子音字母照抄0592010438">环节 13　第一张海报：子音字母「照抄」（<a class="ts" href="https://www.youtube.com/watch?v=eLSOXxHa8Ps&t=3560s" target="_blank" rel="noopener">0:59:20</a>–1:04:38）</h3>
+<p><strong>教学目标</strong>：分清子音字母与母音字母；知道子音字母的音标几乎就是照抄。</p>
+<p><strong>老师讲解要点</strong></p>
+<ul>
+<li>海报上红色写的先不看，只看黑色：B 发 [b]，「你有没有发现它的写法跟小写的 b 一模一样」；D、F、G、H、K、L、M、N、P、R、S、T、V、W、Z 也都一样。</li>
+<li><strong>不一样的只有五个</strong>：「C 是『可』[k]，J 是『举』[dʒ]，Q 是『括』[kw]，X 是『可死』[ks]，Y 是『耶』[j]。」</li>
+<li>「这些黑色的部分我告诉你它叫做子音，子音字母；红色的这五个（A E I O U），我把它叫做母音字母。」</li>
+<li>子音字母的念法：「我一旦告诉你它念 [b]，以后你看到 B，绝大多数、99% 它就念作 [b]，不会有变化。」</li>
+<li><strong>口诀句</strong>：「除了 A E I O U 这五个字母会发母音以外，其他的字母全部都发子音。」子音部分「照抄就对了」。</li>
+</ul>
+<p><strong>例词</strong>：desk——「除了 E 不理它，D 就是『的』，S 就是『死』，K 就是『可』，刚好一个对一个」；cat——C 一定发「可」、T 一定发 [t]；flag——除了 A，F、L、G「照抄都不会错」。</p>
+<h3 id="环节-14-第二张海报母音字母的两种主要念法1043811113">环节 14　第二张海报：母音字母的两种主要念法（<a class="ts" href="https://www.youtube.com/watch?v=eLSOXxHa8Ps&t=3878s" target="_blank" rel="noopener">1:04:38</a>–1:11:13）</h3>
+<p><strong>教学目标</strong>：母音不要乱猜；先在两种可能里「二选一」。</p>
+<p><strong>老师讲解要点</strong></p>
+<ul>
+<li>「子音不会有变化，可是母音会有变化。」写音标时：「子音的部分先照口诀写下来，母音的部分（A E I O U）请你先空下来。」</li>
+<li>「母音我告诉你有 17 个，你不是说 17 个去随便乱猜，猜中的机会只有 1/17……你猜有规则可循。」</li>
+<li><strong>第一种念法</strong>：口诀里背的——A [æ]、E [ɛ]、I [ɪ]、O [ɑ]、U [ʌ]。「这五个母音字母发成这样的机率最高，所以我让你背起来」，猜中机率「大概六七成吧」。</li>
+<li><strong>第二种念法</strong>：「就跟这个字母本身念的一样」——A 念 [e]、E 念 [i]、I 念 [aɪ]、O 念 [o]、U 念 [ju]。</li>
+<li>「二选一」再加上「老师上课教单字一定会告诉你怎么念」的印象，「念念看，看哪一个比较像」，猜对机率就到八九成。</li>
+<li><strong>O 还有两个发法</strong>：「除了跟它本身一样、除了老师叫你背的以外，它还有两个发法」，其中一个是「开口的」[ɔ] <span class="q" title="转写不清或看不到板书">[?]</span>（另一个转写不清 <span class="q" title="转写不清或看不到板书">[?]</span>）；「这个东西就没有办法了，一个单字来你就把它记起来」。</li>
+</ul>
+<p><strong>例词</strong>：pen——「P 就 [p]、N 就 [n]，写完了；E 只有两种：是 [pin] 还是 [pɛn]？好像 pen 比较对，就写 [pɛn]。」</p>
+<p><strong>学习方法</strong>：「母音的部分我现在还不要求你全部背下来，你把这个抄在你的课本上。以后每学到一个单字，你就猜它怎么念、写一写，然后去课文后面单字表看看对不对。对的，这个字就不理它；不对的，你就特别记一下——不是整个字记，去记那一个小部分不一样的就好。」</p>
+<h3 id="环节-15-重音节与非重音节1111311343">环节 15　重音节与非重音节（<a class="ts" href="https://www.youtube.com/watch?v=eLSOXxHa8Ps&t=4273s" target="_blank" rel="noopener">1:11:13</a>–1:13:43）</h3>
+<p><strong>老师讲解要点</strong></p>
+<ul>
+<li>desk 只有一个母音字母 → 它就在重音节。</li>
+<li>doctor 有两个 o：「第一个我说它是重音节……你猜的方法就是刚刚讲的，要不就跟老师要你背的一样，要不就跟它本身一样，二选一」；「第二个被你碰到的，就表示不在重音了。」</li>
+<li>「不在重音的时候，A E I O U 绝大多数全部都发成 [ə]」；「还有这个是发成 [ɪ]，这个考试不太会考」。</li>
+</ul>
+<h3 id="环节-16-小结与学习策略1134311635">环节 16　小结与学习策略（<a class="ts" href="https://www.youtube.com/watch?v=eLSOXxHa8Ps&t=4423s" target="_blank" rel="noopener">1:13:43</a>–1:16:35）</h3>
+<ul>
+<li>「音标分成两大种：一种是发子音的——A E I O U 以外都发子音，照口诀照写，百分之九十九都对；会有变化的是 A E I O U 这五个字。」</li>
+<li>「我并不是鼓励你猜测，而是告诉你，你如果万一没有背到又要考试，你可以这样子来做。」</li>
+<li>「很多学生一个单字先背一遍拼字，再把音标背一遍，一个字变两个字，浪费很多时间。」100 个字里：口诀能解决约 80 个（合规则的不用理），剩下 20 个再用规则省掉 10 个，「剩 10 个字要记音标，也不是整个字记，只记跟规则不一样的那一小部分」，「最后可能只剩下 5 个字要记」。</li>
+</ul>
+<h3 id="环节-17-规则一字尾-e-不发音前面的母音念字母本身的音1163512206">环节 17　规则一：字尾 e 不发音，前面的母音念字母本身的音（<a class="ts" href="https://www.youtube.com/watch?v=eLSOXxHa8Ps&t=4595s" target="_blank" rel="noopener">1:16:35</a>–1:22:06）</h3>
+<p><strong>口诀句</strong>：「如果在一个字的尾巴看到一个 e，这个 e 不发音；它前面这一个母音就会念得跟这个字母一模一样。」</p>
+<p><strong>拼读步骤</strong>（老师每个字都这样做）：①找出母音字母先不理；②子音照抄；③看到字尾 e → 不发音；④前面的母音念字母本身的音；⑤连起来念。</p>
+<div class="tbl"><table>
+<thead>
+<tr class="header">
+<th>单字</th>
+<th>拼读</th>
+<th>KK</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>name</td>
+<td>N「在字首是 [n]」，M「在后面是嗯嗯」，A 念 A 本身 [e]</td>
+<td>[nem]</td>
+</tr>
+<tr class="even">
+<td>ride（转写为 R-I-?-E，按读音「Ry 的」校正）<span class="q" title="转写不清或看不到板书">[?]</span></td>
+<td>R「弱弱」照抄，D「的的」照抄，I 念「爱」[aɪ]</td>
+<td>[raɪd]</td>
+</tr>
+<tr class="odd">
+<td>came（转写为「Cam」）<span class="q" title="转写不清或看不到板书">[?]</span></td>
+<td>C「可可」，M 在后面，A 念 [e]</td>
+<td>[kem]</td>
+</tr>
+<tr class="even">
+<td>take</td>
+<td>T、K 照抄，A 念 [e]</td>
+<td>[tek]</td>
+</tr>
+<tr class="odd">
+<td>home</td>
+<td>H、M 照抄，O 念 [o]</td>
+<td>[hom]</td>
+</tr>
+<tr class="even">
+<td>fine（转写为「F 抄下来、N 抄下来」）<span class="q" title="转写不清或看不到板书">[?]</span></td>
+<td>F、N 照抄，I 念「爱」[aɪ]</td>
+<td>[faɪn]</td>
+</tr>
+</tbody>
+</table></div>
+<p>「这个符号没关系，你多写几次、多看几次，你会记得的，放心好了。」</p>
+<h3 id="环节-18-规则二a-e-i-o-u-加上-r1220612550">环节 18　规则二：A E I O U 加上 R（<a class="ts" href="https://www.youtube.com/watch?v=eLSOXxHa8Ps&t=4926s" target="_blank" rel="noopener">1:22:06</a>–1:25:50）</h3>
+<p><strong>口诀句</strong>：「A E I O U 都加上 R 的时候，如果在重音节（第一个碰到的）就会发这一个 [ɝ]；如果在字的尾巴，就会发这一个 [ɚ]。」</p>
+<div class="tbl"><table>
+<thead>
+<tr class="header">
+<th>单字</th>
+<th>拼读</th>
+<th>KK</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>work <span class="q" title="转写不清或看不到板书">[?]</span>（转写为「5-2 work」，板书字不确定）</td>
+<td>子音照抄，or 第一次碰到 → [ɝ]</td>
+<td>[wɝk]</td>
+</tr>
+<tr class="even">
+<td>bird</td>
+<td>B、D 照抄，ir 第一次碰到 → [ɝ]</td>
+<td>[bɝd]</td>
+</tr>
+<tr class="odd">
+<td>her</td>
+<td>H 抄下来，er 第一次碰到 → [ɝ]</td>
+<td>[hɝ]</td>
+</tr>
+<tr class="even">
+<td>worker（转写为「Walker」）<span class="q" title="转写不清或看不到板书">[?]</span></td>
+<td>第一个 or → [ɝ]，字尾 er → [ɚ]</td>
+<td>[ˋwɝkɚ]</td>
+</tr>
+<tr class="odd">
+<td>doctor</td>
+<td>D、K、T 照抄，o → [ɑ]，字尾 or → [ɚ]</td>
+<td>[ˋdɑktɚ]</td>
+</tr>
+<tr class="even">
+<td>mister</td>
+<td>M「字首么么」，i → [ɪ]，S、T 照抄，字尾 er → [ɚ]</td>
+<td>[ˋmɪstɚ]</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="环节-19-第三堂小结12550约-12746">环节 19　第三堂小结（<a class="ts" href="https://www.youtube.com/watch?v=eLSOXxHa8Ps&t=5150s" target="_blank" rel="noopener">1:25:50</a>–约 1:27:46）</h3>
+<ul>
+<li>「今天教了你两种：第一种是后面（e）不发音，前面就发本身的音；第二种是（母音加 r）第一次遇到发这个，在字尾发这个。」「到这里大概 90% 的音标你都没有问题了。」</li>
+<li>「100 个字里面，有 50 个字你光是背完口诀就已经可以应付；剩下的 50 个里面，有 30 个你可以透过这些规则来写；剩下 20 个，也只要背那一小部分跟规则不太一样的。」「国一、国二、国三，你可能学 500 个字、1000 个字，最后你需要记的音标寥寥可数。」「你现在付出这个努力，我保证你绝对值得。」</li>
+</ul>
+<hr />
+<h2 id="a-5">第四堂（约 1:27:46–1:55:03）</h2>
+<h3 id="环节-20-复诵口诀复习规则一与规则二约-1274613009">环节 20　复诵口诀、复习规则一与规则二（约 <a class="ts" href="https://www.youtube.com/watch?v=eLSOXxHa8Ps&t=5266s" target="_blank" rel="noopener">1:27:46</a>–1:30:09）</h3>
+<ul>
+<li>「清清喉咙，大声一点、念好听一点」：全班念 A–Z。「OK，50% 的音标分数拿到了，再来看另外的 30%。」</li>
+<li>复习规则一（name）与规则二（「第一次遇到在重音节就发 [ɝ]，在字尾就发 [ɚ]，一直都适用」，「很少很少例外，奇怪的记一下就好」）。</li>
+</ul>
+<h3 id="环节-21-规则三两个-o-相连1300913334">环节 21　规则三：两个 o 相连（<a class="ts" href="https://www.youtube.com/watch?v=eLSOXxHa8Ps&t=5409s" target="_blank" rel="noopener">1:30:09</a>–1:33:34）</h3>
+<p><strong>口诀句</strong>：「两个 o 相连，常常会发成 [ᴜ]。」第二种机率：[u]。</p>
+<div class="tbl"><table>
+<thead>
+<tr class="header">
+<th>单字</th>
+<th>拼读</th>
+<th>KK</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>book</td>
+<td>B、K 照抄；「怎样才会 book？」→ oo 发 [ᴜ]</td>
+<td>[bᴜk]</td>
+</tr>
+<tr class="even">
+<td>good</td>
+<td>G、D 照抄 → oo 发 [ᴜ]</td>
+<td>[gᴜd]</td>
+</tr>
+<tr class="odd">
+<td>look</td>
+<td>L、K 照抄 → 猜 [ᴜ]</td>
+<td>[lᴜk]</td>
+</tr>
+<tr class="even">
+<td>foot</td>
+<td>F、T 照抄 → 猜 [ᴜ]</td>
+<td>[fᴜt]</td>
+</tr>
+<tr class="odd">
+<td>room <span class="q" title="转写不清或看不到板书">[?]</span>（转写为「弱弱……又剩下 oo」，单字不确定）</td>
+<td>R 照抄；这里的 oo 念 [u]</td>
+<td>[rum]</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>「以后一个单字里面你如果看到两个 o 相连，最大的机率是 [ᴜ]，第二个机率是 [u]。」</li>
+<li>「以后单字出来，如果 oo 是发 [ᴜ] 的我就不告诉你了；若是发 [u] 的，我会特别告诉你。你只要记那个就好。」</li>
+</ul>
+<h3 id="环节-22-规则四auouawow1333413500">环节 22　规则四：au、ou、aw、ow（<a class="ts" href="https://www.youtube.com/watch?v=eLSOXxHa8Ps&t=5614s" target="_blank" rel="noopener">1:33:34</a>–1:35:00）</h3>
+<p><strong>口诀句</strong>：「看到 au、ou、aw、ow 如果连在一起，它常常会发作 [aᴜ]（奥）。」「不是『奥呜』，没有这样子的。」</p>
+<div class="tbl"><table>
+<thead>
+<tr class="header">
+<th>单字</th>
+<th>拼读</th>
+<th>KK</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>house</td>
+<td>H「喝喝」、S 照抄，ou → [aᴜ]</td>
+<td>[haᴜs]</td>
+</tr>
+<tr class="even">
+<td>ow 的例字 <span class="q" title="转写不清或看不到板书">[?]</span>（转写为「学过了，OW 可能会发作 O……」，单字与说法都听不清）</td>
+<td>—</td>
+<td><span class="q" title="转写不清或看不到板书">[?]</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>「你把子音写完之后，那个连在一起的部分你就给它猜 [aᴜ]，大概就会对了。」</p>
+<h3 id="环节-23-规则五字母组合要背1350013826">环节 23　规则五：字母组合（要背）（<a class="ts" href="https://www.youtube.com/watch?v=eLSOXxHa8Ps&t=5700s" target="_blank" rel="noopener">1:35:00</a>–1:38:26）</h3>
+<p>「这个没办法，你就背起来」「你抄在课本的封皮上，常常看、每天看」「背起来一次背，以后一劳永逸」。</p>
+<div class="tbl"><table>
+<thead>
+<tr class="header">
+<th>组合</th>
+<th>KK</th>
+<th>老师的讲法</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>th</td>
+<td>[θ]</td>
+<td>「上下的牙齿轻轻咬住你的舌头……没有声音的」，如 thank you 的 thank</td>
+</tr>
+<tr class="even">
+<td>th</td>
+<td>[ð]</td>
+<td>「也是上下牙齿咬住你的舌头，可是是有声音的」</td>
+</tr>
+<tr class="odd">
+<td>ch</td>
+<td>[tʃ]</td>
+<td>「CH 连在一起，常常就发作『去』」</td>
+</tr>
+<tr class="even">
+<td>sh</td>
+<td>[ʃ]</td>
+<td>「常常发作『嘘』」</td>
+</tr>
+<tr class="odd">
+<td>ph</td>
+<td>[f]</td>
+<td>「常常发作 [f]」</td>
+</tr>
+<tr class="even">
+<td>ng（在字尾）</td>
+<td>[ŋ]，有时 [ŋg]</td>
+<td>「NG 如果在字的尾巴，常常会发『嗯』」；「有时候两个都发」，如 English 里面的 ng</td>
+</tr>
+<tr class="odd">
+<td>nk</td>
+<td>[ŋk]</td>
+<td>「N 和 K 连在一起，常常发作『嗯可』」</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="环节-24-五条规则总复习1382613951">环节 24　五条规则总复习（<a class="ts" href="https://www.youtube.com/watch?v=eLSOXxHa8Ps&t=5906s" target="_blank" rel="noopener">1:38:26</a>–1:39:51）</h3>
+<p>依次复述：①字尾 e 不发音，前面发本身的音；②A E I O U + R：第一次碰到（重音节）[ɝ]、字尾 [ɚ]；③oo 常发 [ᴜ]，有时 [u]（「我没有讲就是 [ᴜ]」）；④au/ou/aw/ow 常发 [aᴜ]；⑤th [θ]/[ð]、ch [tʃ]、sh [ʃ]、ph [f]、ng [ŋ]/[ŋg]、nk [ŋk]。</p>
+<h3 id="环节-25-验证用规则写出第二课单字的音标1395114733">环节 25　验证：用规则写出第二课单字的音标（<a class="ts" href="https://www.youtube.com/watch?v=eLSOXxHa8Ps&t=5991s" target="_blank" rel="noopener">1:39:51</a>–1:47:33）</h3>
+<p>「你如果没有学过老师这一套，你很可怜喔，要先背 book，又去把音标背一遍。你学过这个，等一下看看，你只要背那几个部分，好少喔、好有用喔。」</p>
+<div class="tbl"><table>
+<thead>
+<tr class="header">
+<th>单字</th>
+<th>老师的推导</th>
+<th>KK</th>
+<th>要不要背</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>book</td>
+<td>B、K 照抄，oo → [ᴜ]</td>
+<td>[bᴜk]</td>
+<td>不用</td>
+</tr>
+<tr class="even">
+<td>desk</td>
+<td>D、S、K 照抄，E → [ɛ]</td>
+<td>[dɛsk]</td>
+<td>不用</td>
+</tr>
+<tr class="odd">
+<td>pen</td>
+<td>P、N 照抄，E → [ɛ]</td>
+<td>[pɛn]</td>
+<td>不用</td>
+</tr>
+<tr class="even">
+<td>this</td>
+<td>th 二选一：老师念的是有声的 → [ð]；I → [ɪ]，S 照抄</td>
+<td>[ðɪs]</td>
+<td>不用</td>
+</tr>
+<tr class="odd">
+<td>that</td>
+<td>th 有声 → [ð]；A → [æ]，T 照抄</td>
+<td>[ðæt]</td>
+<td>不用</td>
+</tr>
+<tr class="even">
+<td>it</td>
+<td>I → [ɪ]，T 照抄</td>
+<td>[ɪt]</td>
+<td>不用</td>
+</tr>
+<tr class="odd">
+<td>chair</td>
+<td>ch → [tʃ]；字尾 r 照抄；<strong>ai 是例外</strong>，发 [ɛ]</td>
+<td>[tʃɛr]</td>
+<td>只背「ai → [ɛ]」这一小部分</td>
+</tr>
+<tr class="even">
+<td>pencil</td>
+<td>P、N、L 照抄；<strong>C 在这里发 [s]</strong>；<strong>i 跑到 L 下面</strong>，变成成音节的 [l̩]</td>
+<td>[ˋpɛnsl̩]</td>
+<td>只背 c 与 il 这一小部分</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>「你学了八个单字，只需要背两个字的音标，而且也不是全背，只背这两个字里面的一小部分。」</li>
+<li>「以后英文 100 个字、1000 个字，999 个全部写对。例外的字很少，有例外我会告诉你；没有例外我就带过去，你根本不要理它。」</li>
+</ul>
+<h3 id="环节-26-全课总结1473315237">环节 26　全课总结（<a class="ts" href="https://www.youtube.com/watch?v=eLSOXxHa8Ps&t=6453s" target="_blank" rel="noopener">1:47:33</a>–1:52:37）</h3>
+<ul>
+<li>「第一、第二节课我花了很多时间让你背音标口诀，因为绝大部分它就照这样发……一个字母对一个，照抄照写你就全部都对——这 50% 的音标你都写得出来。」</li>
+<li>「光是这样不太够，所以有一些规则要记，规则其实很少。」依次复述规则一至规则五（「au、ou、aw、ow……马上给它『奥』下去」；th「念念看嘛，老师上课是不是好卖力一直念给你听」——that 猜第二个、thank 猜第一个）。</li>
+</ul>
+<h3 id="环节-27-示范-thank布置作业1523715503">环节 27　示范 thank，布置作业（<a class="ts" href="https://www.youtube.com/watch?v=eLSOXxHa8Ps&t=6757s" target="_blank" rel="noopener">1:52:37</a>–1:55:03）</h3>
+<ul>
+<li>thank：th 只有两种，「我念作 [θæŋk]，有没有给你 [ðæŋk]？没有」→ 第一个 [θ]；A → [æ]；nk → [ŋk]：<strong>[θæŋk]</strong>。</li>
+<li><strong>作业</strong>：「把第一课的单字拿出来，每一个字你就开始猜音标——自己猜、自己写，然后拿课本后面单字表对对看，看你猜对几个。不可能全部猜对，因为有例外字；你只要去记那个例外字里面的一小部分。第二课也是一样。」</li>
+<li>「今天开始你这个东西要抄在你的课本上，永志不忘；想到了就拿出来看、拿出来念，多念几遍、多看几遍。」「希望以后的三年内，国一、国二、国三，你都能把音标学得很好、很顺利。」</li>
+<li>下课前再念几次口诀：「有用嘛，有用就多念。」</li>
+</ul>
+<hr />
+<h2 id="a-6">附录一　全课「字母 / 字母组合 → KK 音标」总表</h2>
+<h3 id="1-26-个字母口诀字母本身配的音">1. 26 个字母口诀（字母本身配的音）</h3>
+<div class="tbl"><table>
+<thead>
+<tr class="header">
+<th>字母</th>
+<th>KK</th>
+<th>口诀提示</th>
+<th>字母</th>
+<th>KK</th>
+<th>口诀提示</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>[æ]</td>
+<td>欸（嘴巴裂开、难看一点）</td>
+<td>N</td>
+<td>[n]</td>
+<td>字前「呢」；字后「嗯」嘴巴张开</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>[b]</td>
+<td>波</td>
+<td>O</td>
+<td>[ɑ]</td>
+<td>啊（嘴巴张大）</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>[k]</td>
+<td>可（咳）</td>
+<td>P</td>
+<td>[p]</td>
+<td>Po（ㄆ的气音）<span class="q" title="转写不清或看不到板书">[?]</span></td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td>[d]</td>
+<td>的</td>
+<td>Q</td>
+<td>[kw]</td>
+<td>阔（k + w「屋」）</td>
+</tr>
+<tr class="odd">
+<td>E</td>
+<td>[ɛ]</td>
+<td>欸</td>
+<td>R</td>
+<td>[r]</td>
+<td>字前「若」；字后「儿」卷舌</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>[f]</td>
+<td>上齿轻咬下唇，无声</td>
+<td>S</td>
+<td>[s]</td>
+<td>丝</td>
+</tr>
+<tr class="odd">
+<td>G</td>
+<td>[g]</td>
+<td>一个两个的「个」</td>
+<td>T</td>
+<td>[t]</td>
+<td>ㄊ</td>
+</tr>
+<tr class="even">
+<td>H</td>
+<td>[h]</td>
+<td>ㄍㄎㄏ的「喝」</td>
+<td>U</td>
+<td>[ʌ]</td>
+<td>阿（嘴巴半开）</td>
+</tr>
+<tr class="odd">
+<td>I</td>
+<td>[ɪ]</td>
+<td>依（短短的）</td>
+<td>V</td>
+<td>[v]</td>
+<td>上齿轻咬下唇，有声</td>
+</tr>
+<tr class="even">
+<td>J</td>
+<td>[dʒ]</td>
+<td>句子的「句」</td>
+<td>W</td>
+<td>[w]</td>
+<td>屋</td>
+</tr>
+<tr class="odd">
+<td>K</td>
+<td>[k]</td>
+<td>跟 C 一样</td>
+<td>X</td>
+<td>[ks]</td>
+<td>可死（可发无声）</td>
+</tr>
+<tr class="even">
+<td>L</td>
+<td>[l]</td>
+<td>字前「了 / 乐」；字后「喔」</td>
+<td>Y</td>
+<td>[j]</td>
+<td>耶</td>
+</tr>
+<tr class="odd">
+<td>M</td>
+<td>[m]</td>
+<td>字前「么」；字后「嗯」嘴巴闭起</td>
+<td>Z</td>
+<td>[z]</td>
+<td>咬牙切齿</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>子音字母的写法</strong>：除 C [k]、J [dʒ]、Q [kw]、X [ks]、Y [j] 五个以外，音标写法与小写字母相同——「照抄」。</p>
+<h3 id="2-母音字母的念法第二张海报">2. 母音字母的念法（第二张海报）</h3>
+<div class="tbl"><table>
+<thead>
+<tr class="header">
+<th>母音字母</th>
+<th>① 口诀里背的（最常见）</th>
+<th>② 跟字母本身一样</th>
+<th>其它</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>[æ]</td>
+<td>[e]</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>E</td>
+<td>[ɛ]</td>
+<td>[i]</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td>I</td>
+<td>[ɪ]</td>
+<td>[aɪ]</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>O</td>
+<td>[ɑ]</td>
+<td>[o]</td>
+<td>另有两种，其一为开口的 [ɔ] <span class="q" title="转写不清或看不到板书">[?]</span>，另一种 <span class="q" title="转写不清或看不到板书">[?]</span>；单字来时记住</td>
+</tr>
+<tr class="odd">
+<td>U</td>
+<td>[ʌ]</td>
+<td>[ju]</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>非重音节的 a e i o u</td>
+<td>绝大多数 [ə]，有时 [ɪ]</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="3-规则与字母组合">3. 规则与字母组合</h3>
+<div class="tbl"><table>
+<thead>
+<tr class="header">
+<th>规则</th>
+<th>字母 / 组合</th>
+<th>KK</th>
+<th>视频例词</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>规则一</td>
+<td>母音 + 子音 + 字尾 e（e 不发音）</td>
+<td>前面母音念本身：[e] [i] [aɪ] [o] [ju]</td>
+<td>name, ride <span class="q" title="转写不清或看不到板书">[?]</span>, came <span class="q" title="转写不清或看不到板书">[?]</span>, take, home, fine <span class="q" title="转写不清或看不到板书">[?]</span></td>
+</tr>
+<tr class="even">
+<td>规则二</td>
+<td>ar / er / ir / or / ur（重音节、第一次碰到）</td>
+<td>[ɝ]</td>
+<td>work <span class="q" title="转写不清或看不到板书">[?]</span>, bird, her, worker <span class="q" title="转写不清或看不到板书">[?]</span></td>
+</tr>
+<tr class="odd">
+<td>规则二</td>
+<td>ar / er / ir / or / ur（字尾）</td>
+<td>[ɚ]</td>
+<td>worker <span class="q" title="转写不清或看不到板书">[?]</span>, doctor, mister</td>
+</tr>
+<tr class="even">
+<td>规则三</td>
+<td>oo</td>
+<td>常 [ᴜ]；有时 [u]</td>
+<td>book, good, look, foot；room <span class="q" title="转写不清或看不到板书">[?]</span></td>
+</tr>
+<tr class="odd">
+<td>规则四</td>
+<td>au / ou / aw / ow</td>
+<td>[aᴜ]</td>
+<td>house</td>
+</tr>
+<tr class="even">
+<td>规则五</td>
+<td>th</td>
+<td>[θ]（无声）/ [ð]（有声）</td>
+<td>thank / this, that</td>
+</tr>
+<tr class="odd">
+<td>规则五</td>
+<td>ch</td>
+<td>[tʃ]</td>
+<td>chair</td>
+</tr>
+<tr class="even">
+<td>规则五</td>
+<td>sh</td>
+<td>[ʃ]</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td>规则五</td>
+<td>ph</td>
+<td>[f]</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>规则五</td>
+<td>ng（字尾）</td>
+<td>[ŋ]，有时 [ŋg]</td>
+<td>English</td>
+</tr>
+<tr class="odd">
+<td>规则五</td>
+<td>nk</td>
+<td>[ŋk]</td>
+<td>thank</td>
+</tr>
+<tr class="even">
+<td>例外（第二课）</td>
+<td>ai（chair）</td>
+<td>[ɛ]</td>
+<td>chair [tʃɛr]</td>
+</tr>
+<tr class="odd">
+<td>例外（第二课）</td>
+<td>c（pencil）、il（pencil）</td>
+<td>[s]、[l̩]</td>
+<td>pencil [ˋpɛnsl̩]</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="a-7">附录二　全部口诀 / 顺口溜汇总</h2>
+<ol type="1">
+<li><strong>字母口诀</strong>（每个字母「字母名 ×2 + 音 ×2」）： A A [æ][æ]　B B [b][b]　C C [k][k]　D D [d][d]　E E [ɛ][ɛ]　F F [f][f]　G G [g][g]　H H [h][h]　I I [ɪ][ɪ]　J J [dʒ][dʒ]　K K [k][k]　L L [l][l]（字前，了了）　L L [l][l]（字后，喔喔）　M M [m][m]（字前，么么）　M M [m][m]（字后，嗯嗯·嘴巴闭）　N N [n][n]（字前，呢呢）　N N [n][n]（字后，嗯嗯·嘴巴开）　O O [ɑ][ɑ]　P P [p][p]　Q Q [kw][kw]（阔阔）　R R [r][r]（字前，若若）　R R [r][r]（字后，儿儿·卷舌）　S S [s][s]　T T [t][t]　U U [ʌ][ʌ]　V V [v][v]　W W [w][w]　X X [ks][ks]（可死）　Y Y [j][j]　Z Z [z][z]</li>
+<li><strong>发音提示语</strong>：「A——把嘴巴裂开一点，难听一点」；「D——你的、我的那个『的』」；「F——上面的牙齿轻轻咬住你下面的嘴唇」；「G——一个、两个、三个那个『个』」；「H——歌科喝（ㄍㄎㄏ）那个『喝』」；「I——短短的」；「J——句子的『句』」；「K——跟 C 一样」；「L 字前——注音ㄌ／快乐的『乐』」；「M 字后——嘴巴闭起来，鼻音」；「N 字前——你这个人怎么这个样子『呢』」；「N 字后——嘴巴开开，有一点鼻音」；「Q——宽阔的『阔』（k + 屋）」；「R 字前——天涯若比邻的『若』」；「R 字后——『而』，卷舌音」；「T——ㄅㄆㄇㄈ里的『ㄊ』」；「U——嘴巴半开」；「O——嘴巴张大」；「V——上面的牙齿轻轻咬住下面的嘴唇」；「X——可、死，可发无声的」；「Z——咬牙切齿」。</li>
+<li><strong>背诵方法</strong>：「抄在课本的封皮上，永志不忘」；「早上眼睛一打开念三遍，晚上睡觉前再念三遍」；「三餐也念」；「念个 30 遍、40 遍、50 遍」。</li>
+<li><strong>子音规则句</strong>：「除了 A E I O U 这五个字母会发母音以外，其他的字母全部都发子音」；子音「照抄就对了」；「不一样的只有 C 是『可』、J 是『举』、Q 是『括』、X 是『可死』、Y 是『耶』」。</li>
+<li><strong>母音规则句</strong>：「母音先空下来」；「第一个是你背的，第二个是跟它本身一样，二选一，念念看」；「不在重音的时候，A E I O U 绝大多数都发成 [ə]」。</li>
+<li><strong>规则一</strong>：「字尾有一个 e 不发音，前面的母音就发它本身的音。」</li>
+<li><strong>规则二</strong>：「A E I O U 加上 R，第一次碰到（在重音节）发 [ɝ]，在字尾碰到发 [ɚ]。」</li>
+<li><strong>规则三</strong>：「两个 o 相连，常常发 [ᴜ]，有时候发 [u]；我没有讲的就是 [ᴜ]。」</li>
+<li><strong>规则四</strong>：「au、ou、aw、ow 连在一起，常常发作『奥』[aᴜ]——不是『奥呜』。」</li>
+<li><strong>规则五</strong>：「th 常常发作 [θ] 或者 [ð]；ch 常常发作『去』[tʃ]；sh 常常发作『嘘』[ʃ]；ph 常常发作 [f]；ng 在字尾常常发作『嗯』[ŋ]，有时 [ŋg]；nk 常常发作『嗯可』[ŋk]。」</li>
+<li><strong>学习理念</strong>：「一个字给你，管它认不认识，你都可以把它写出来、念出来」；「对的就不理它，不对的只记那一小部分」；「100 个字：口诀 50 个、规则 30 个，剩下的只记跟规则不一样的一小部分」；「有用就多念」。</li>
+</ol>
+<h2 id="a-8">附录三　转写不清、标注 <span class="q" title="转写不清或看不到板书">[?]</span> 的地方</h2>
+<div class="tbl"><table>
+<thead>
+<tr class="header">
+<th>时间</th>
+<th>内容</th>
+<th>处理</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0:00:25、0:01:25</td>
+<td>黑板上的生僻中文字、没学过的英文字</td>
+<td>未能识别，标 <span class="q" title="转写不清或看不到板书">[?]</span></td>
+</tr>
+<tr class="even">
+<td>0:07:06</td>
+<td>C 的提示「不要有……音」</td>
+<td>只保留可确定的「里面有一个 k」</td>
+</tr>
+<tr class="odd">
+<td>0:15:35</td>
+<td>A [æ] 与 E [ɛ] 哪个「嘴巴比较扁」</td>
+<td>只确定 [æ] 是「很难看、开得比较开」</td>
+</tr>
+<tr class="even">
+<td>0:17:49</td>
+<td>L 在字后的例字</td>
+<td>未识别</td>
+</tr>
+<tr class="odd">
+<td>0:32:09</td>
+<td>P 的提示「像 Po Po 那个 Po」</td>
+<td>推断为注音ㄆ的气音</td>
+</tr>
+<tr class="even">
+<td>0:34:35</td>
+<td>R 在字后的板书符号</td>
+<td>按 KK 惯例写 [r]，标 <span class="q" title="转写不清或看不到板书">[?]</span></td>
+</tr>
+<tr class="odd">
+<td>0:36:52</td>
+<td>S 的提示「SS 有两种」</td>
+<td>内容不清</td>
+</tr>
+<tr class="even">
+<td>0:52:18</td>
+<td>「Bad」</td>
+<td>按板书字母 B-E-D 校正为 bed</td>
+</tr>
+<tr class="odd">
+<td>1:10:19</td>
+<td>O 的另外两种念法</td>
+<td>只确定其一为「开口的」[ɔ]</td>
+</tr>
+<tr class="even">
+<td>1:18:33</td>
+<td>R-I-?-E（ride）</td>
+<td>按读音「Ry 的」校正</td>
+</tr>
+<tr class="odd">
+<td>1:19:29</td>
+<td>「Cam」</td>
+<td>按拼读过程（C、M、A、字尾 E）校正为 came</td>
+</tr>
+<tr class="even">
+<td>1:21:55</td>
+<td>「F 抄下来、N 抄下来」</td>
+<td>校正为 fine</td>
+</tr>
+<tr class="odd">
+<td>1:22:53</td>
+<td>规则二的第一个例字「5-2 work」</td>
+<td>推断为 work</td>
+</tr>
+<tr class="even">
+<td>1:23:53</td>
+<td>「Walker」</td>
+<td>按「两个 r 音、第一个 [ɝ]、第二个 [ɚ]」校正为 worker</td>
+</tr>
+<tr class="odd">
+<td>1:32:36</td>
+<td>oo 念 [u] 的例字（R 开头）</td>
+<td>推断为 room</td>
+</tr>
+<tr class="even">
+<td>1:34:33</td>
+<td>ow 的例字与「可能会发作 O」</td>
+<td>未能识别</td>
+</tr>
+<tr class="odd">
+<td>约 1:27:46</td>
+<td>第三堂与第四堂的分界</td>
+<td>依「我上次补充了两个规则」（1:28:44）推断</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>校注（编者，非视频内容）：老师在课堂上把 au/aw 与 ou/ow 一并归为「常发 [aᴜ]」；KK 词典中 au、aw 多标 [ɔ]（如 saw [sɔ]）。本教案按视频原样保留老师的说法，只在此处提示。</p>
+</blockquote>
+</div></section>
+<section class="panel" id="ipa"><nav class="toc"><a href="#b-0">一、先弄清几个名词</a><a href="#b-1">二、单元音</a><a href="#b-2">三、双元音与「元音 + r」</a><a href="#b-3">四、r 音化元音</a><a href="#b-4">五、辅音</a><a href="#b-5">六、重音、次重音、长音及其它符号</a><a href="#b-6">七、给教学者的速记</a><a href="#b-7">参考来源</a></nav><div class="doc"><h2 id="b-0">一、先弄清几个名词</h2>
+<ul>
+<li><strong>KK 音标</strong>：Kenyon &amp; Knott《A Pronouncing Dictionary of American English》（1944 初版，1953 修订）所用的标音法，记录美国通用口音（General American），用的是 IPA 字母，但采用<strong>宽式、音位式</strong>标音，元音<strong>靠音质而不靠长短</strong>区分。台湾教材普遍使用，俗称 KK 音标。</li>
+<li><strong>IPA 2020 版音标表</strong>：国际语音学会（International Phonetic Association）发布的音标表。学会官网说明：2018 与 2020 版内容与 2015/2005 修订版<strong>完全相同</strong>，只更新年份与版权标记。所以「2020 版」在符号上等于 2005/2015 版。</li>
+<li><strong>英式 IPA（Gimson 体系）</strong>：英国词典描写标准英音（RP）的写法，以 A. C. Gimson 的音位分析为基础：长元音用长音符号 ː（iː ɑː ɔː uː ɜː），DRESS 元音写 e，GOAT 写 əʊ，并有 ɪə eə ʊə 三个中央化双元音。代表：Cambridge English Pronouncing Dictionary（EPD，Daniel Jones 原著，Roach 等修订）、Cambridge Dictionary 的 UK 标音、Oxford Advanced Learner's Dictionary（OALD）的 BrE 标音。</li>
+<li><strong>美式 IPA（词典写法）</strong>：Cambridge Dictionary 的 US 标音、OALD 的 NAmE 标音、EPD/Longman 的美音栏。它们多数沿用英式框架（保留 ː、写 e），只在美音特点处改写（oʊ、ɝː、ɚ、r 不省略、t̬ 等）。</li>
+<li>注意：<strong>IPA 音标表本身不规定英语怎么标</strong>。同一个音，KK、英式、美式词典可能用不同符号，这是「标音惯例」的差异，不一定是发音差异。</li>
+</ul>
+<h2 id="b-1">二、单元音</h2>
+<div class="tbl"><table>
+<thead>
+<tr class="header">
+<th>KK</th>
+<th>美式 IPA（词典写法）</th>
+<th>英式 IPA（Gimson / EPD / Cambridge UK / OALD BrE）</th>
+<th>例词</th>
+<th>差异说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>[i]</td>
+<td>iː（Cambridge US、OALD NAmE）；Cambridge American Dictionary 写 i</td>
+<td>iː</td>
+<td>see, sheep</td>
+<td>KK 不标长音，靠音质与 [ɪ] 区分；英式与多数美式词典加 ː</td>
+</tr>
+<tr class="even">
+<td>[ɪ]</td>
+<td>ɪ</td>
+<td>ɪ</td>
+<td>sit, it</td>
+<td>一致</td>
+</tr>
+<tr class="odd">
+<td>[ɪ]（非重读字尾 -y）</td>
+<td>i</td>
+<td>i</td>
+<td>happy</td>
+<td>KK 原书把重读、非重读的 i 音都写 [ɪ]（§6），如 pity [ˋpɪtɪ]；Cambridge、OALD、EPD 用不带长音的 /i/ 专门表示这个弱化音</td>
+</tr>
+<tr class="even">
+<td>[ɛ]</td>
+<td>e（Cambridge US、OALD NAmE、Longman）；ɛ（K&amp;K、dictionary.com 等美国词典）</td>
+<td>e</td>
+<td>bed, pen, desk</td>
+<td><strong>最容易混淆</strong>：英式及剑桥/牛津美音栏都用 e 表示 KK 的 [ɛ]；而 KK 的 [e] 是 name 的音（见双元音表）</td>
+</tr>
+<tr class="odd">
+<td>[æ]</td>
+<td>æ</td>
+<td>æ（OED 第三版改用 a）</td>
+<td>cat, flag</td>
+<td>符号一致；OED3 用 a 以反映现代英音实际音值</td>
+</tr>
+<tr class="even">
+<td>[ɑ]（father）</td>
+<td>ɑː；Cambridge American Dictionary 写 ɑ</td>
+<td>ɑː</td>
+<td>father, palm</td>
+<td>KK 不标长音</td>
+</tr>
+<tr class="odd">
+<td>[ɑ]（hot、box）</td>
+<td>ɑː（OALD NAmE、EPD AmE、Longman AmE）；ɑ</td>
+<td>ɒ</td>
+<td>hot, box, doctor</td>
+<td>美音 father 与 bother 同音（K&amp;K §11：多数美国人 top 读 [ɑ]），英音用圆唇的 ɒ。K&amp;K 原书另有 [ɒ] 符号（§12，美国部分地区用），台湾教材一般不教</td>
+</tr>
+<tr class="even">
+<td>[ɔ]</td>
+<td>ɔː；Cambridge American Dictionary 写 ɔ</td>
+<td>ɔː</td>
+<td>saw, law</td>
+<td>cot–caught 合并的美国人把它读成 [ɑ]；KK 不标长音</td>
+</tr>
+<tr class="odd">
+<td>[ᴜ]</td>
+<td>ʊ</td>
+<td>ʊ</td>
+<td>book, foot, good</td>
+<td><strong>字形不同</strong>：KK 用小型大写 U（ᴜ），IPA 正式符号是 ʊ（希腊字母 upsilon）。K&amp;K 原书 §14 强调小型大写 ᴜ 与小写 u 要严格区分</td>
+</tr>
+<tr class="even">
+<td>[u]</td>
+<td>uː；Cambridge American Dictionary 写 u</td>
+<td>uː</td>
+<td>room, food, blue</td>
+<td>KK 不标长音</td>
+</tr>
+<tr class="odd">
+<td>[ʌ]</td>
+<td>ʌ</td>
+<td>ʌ</td>
+<td>cup, sun, umpire</td>
+<td>一致（K&amp;K §19：ʌ 只用于重读音节）</td>
+</tr>
+<tr class="even">
+<td>[ə]</td>
+<td>ə</td>
+<td>ə</td>
+<td>about, doctor 的 o（非 r 音时）</td>
+<td>一致；K&amp;K §18 称「neutral vowel / schwa」，只用于非重读音节</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="b-2">三、双元音与「元音 + r」</h2>
+<div class="tbl"><table>
+<thead>
+<tr class="header">
+<th>KK</th>
+<th>美式 IPA</th>
+<th>英式 IPA</th>
+<th>例词</th>
+<th>差异说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>[e]</td>
+<td>eɪ</td>
+<td>eɪ</td>
+<td>name, take</td>
+<td>KK 用单个符号；K&amp;K §7：rate 的元音常是双元音（ei、eɪ 等），但这些变体从不区分词义，所以用一个 e 代表。IPA 里单独的 [e] 指半闭前元音（单元音）</td>
+</tr>
+<tr class="even">
+<td>[o]</td>
+<td>oʊ</td>
+<td>əʊ</td>
+<td>home, go</td>
+<td>KK 单符号（K&amp;K §13 同理）；美式词典写 oʊ，英式写 əʊ（反映现代英音实际音值）</td>
+</tr>
+<tr class="odd">
+<td>[aɪ]</td>
+<td>aɪ</td>
+<td>aɪ（OED3 用 ʌɪ）</td>
+<td>five, ride</td>
+<td>基本一致</td>
+</tr>
+<tr class="even">
+<td>[aᴜ]</td>
+<td>aʊ</td>
+<td>aʊ</td>
+<td>house, how</td>
+<td>仅第二成分字形不同（ᴜ / ʊ）</td>
+</tr>
+<tr class="odd">
+<td>[ɔɪ]</td>
+<td>ɔɪ</td>
+<td>ɔɪ</td>
+<td>boy</td>
+<td>一致</td>
+</tr>
+<tr class="even">
+<td>[ju]</td>
+<td>juː</td>
+<td>juː</td>
+<td>use, cute</td>
+<td>K&amp;K §21：ju 是「辅音 j + 元音 u」的上升复合；IPA 词典加 ː</td>
+</tr>
+<tr class="odd">
+<td>[ɪr]</td>
+<td>ɪr</td>
+<td>ɪə(r)</td>
+<td>ear, near</td>
+<td>英音不卷舌，用中央化双元音 ɪə；(r) 表示后接元音时才念 r</td>
+</tr>
+<tr class="even">
+<td>[ɛr]</td>
+<td>er（OALD NAmE、EPD AmE）</td>
+<td>eə(r)（Cambridge、OALD BrE）；ɛː（OED3）</td>
+<td>hair, chair</td>
+<td>英式词典新旧写法不一：传统 eə，新派写长单元音 ɛː</td>
+</tr>
+<tr class="odd">
+<td>[ᴜr]</td>
+<td>ʊr</td>
+<td>ʊə(r)，许多词也可读 ɔː</td>
+<td>pure, tour</td>
+<td>英音 CURE 元音常并入 ɔː</td>
+</tr>
+<tr class="even">
+<td>[ɑr]</td>
+<td>ɑːr</td>
+<td>ɑː(r)</td>
+<td>car, start</td>
+<td>英音非卷舌，靠长音 ː 表示</td>
+</tr>
+<tr class="odd">
+<td>[ɔr]</td>
+<td>ɔːr</td>
+<td>ɔː(r)</td>
+<td>horse, four</td>
+<td>同上</td>
+</tr>
+<tr class="even">
+<td>[aɪr]</td>
+<td>aɪr / aɪɚ</td>
+<td>aɪə(r)</td>
+<td>fire</td>
+<td>英式写三合元音 aɪə</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="b-3">四、r 音化元音（卷舌元音）</h2>
+<div class="tbl"><table>
+<thead>
+<tr class="header">
+<th>KK</th>
+<th>美式 IPA</th>
+<th>英式 IPA</th>
+<th>例词</th>
+<th>差异说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>[ɝ]</td>
+<td>ɝː（Cambridge US、EPD AmE、Longman AmE）；ɜːr（OALD NAmE）</td>
+<td>ɜː</td>
+<td>bird, her, work</td>
+<td>重读的卷舌元音。K&amp;K §15：它不是「元音 + r」，而是舌头同时保持 r 的姿势发出的单一元音。英音不卷舌，写 ɜː</td>
+</tr>
+<tr class="even">
+<td>[ɚ]</td>
+<td>ɚ（Cambridge US、EPD AmE）；ər（OALD NAmE）</td>
+<td>ə（Cambridge UK 在后接元音时写 ər）</td>
+<td>doctor, mister, mother</td>
+<td>非重读的卷舌元音</td>
+</tr>
+<tr class="odd">
+<td>说明</td>
+<td></td>
+<td></td>
+<td></td>
+<td>K&amp;K §17：ɝ、ɚ 是在 IPA 的 ɜ、ə 上加「卷舌钩」造出来的。IPA 2020 音标表的元音图里<strong>没有</strong>独立的 ɝ、ɚ 字母，正式做法是在元音后加卷舌化附加符号 ˞（Rhoticity，如 ə˞）；ɚ、ɝ 是 IPA 认可、广泛使用的合成字形</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="b-4">五、辅音</h2>
+<div class="tbl"><table>
+<thead>
+<tr class="header">
+<th>KK</th>
+<th>美式 IPA</th>
+<th>英式 IPA</th>
+<th>例词</th>
+<th>差异说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>[p] [b] [t] [d] [k]</td>
+<td>同</td>
+<td>同</td>
+<td>pen, book, ten, desk, cat</td>
+<td>一致</td>
+</tr>
+<tr class="even">
+<td>[g]</td>
+<td>ɡ</td>
+<td>ɡ</td>
+<td>good, flag</td>
+<td>IPA 标准字形是单层的 ɡ（U+0261），KK 印刷常用普通 g；IPA 允许两种字形，不算差异</td>
+</tr>
+<tr class="odd">
+<td>[t]（美音闪音）</td>
+<td>t̬（Cambridge US，如 cutting）</td>
+<td>t</td>
+<td>water, better</td>
+<td>KK 照写 [t]；Cambridge 美音用 t̬ 表示美式「浊化/闪音 t」，严式 IPA 为 [ɾ]</td>
+</tr>
+<tr class="even">
+<td>[f] [v] [θ] [ð] [s] [z] [ʃ] [ʒ] [h]</td>
+<td>同</td>
+<td>同</td>
+<td>five, very, thank, this, see, zoo, she, vision, house</td>
+<td>一致</td>
+</tr>
+<tr class="odd">
+<td>[tʃ] [dʒ]</td>
+<td>tʃ, dʒ</td>
+<td>tʃ, dʒ</td>
+<td>chair, jump</td>
+<td>K&amp;K 不加连接弧；IPA 表说明塞擦音「必要时」可用连接弧写成 t͡ʃ、d͡ʒ。英语词典一般不加</td>
+</tr>
+<tr class="even">
+<td>[m] [n] [ŋ]</td>
+<td>同</td>
+<td>同</td>
+<td>moon, name, sing, thank</td>
+<td>一致</td>
+</tr>
+<tr class="odd">
+<td>[l]</td>
+<td>l</td>
+<td>l</td>
+<td>look, all</td>
+<td>一致。IPA 宽式不区分字首「清 l」与字尾「暗 l」（严式 [ɫ]）；周育如课里的「L 字后念『喔』」正是暗 l</td>
+</tr>
+<tr class="even">
+<td>[l̩] [n̩] [m̩]（成音节）</td>
+<td>əl / l̩；ən / n̩</td>
+<td>l, əl, (ə)l</td>
+<td>pencil, seven</td>
+<td>KK 与 IPA 都用下加竖线 ◌̩ 表示成音节辅音（K&amp;K §24）；英式词典多写 əl、(ə)n 或省略 ə，如 OALD beautiful /ˈbjuːtɪfl/</td>
+</tr>
+<tr class="odd">
+<td>[r]</td>
+<td>r</td>
+<td>r（仅元音前发音）</td>
+<td>red, rabbit</td>
+<td>词典都用 r；但 IPA 中 [r] 是<strong>齿龈颤音</strong>，英语的 r 严式应写近音 [ɹ]（后齿龈 ɹ̠）。K&amp;K §26 承认 r 在不同语言/方言里代表不同音，本书一律用 r。英音不卷舌：car /kɑː/；Cambridge 用 ◌r 标「连读 r」（four apples /ˌfɔːr ˈæp.əlz/）</td>
+</tr>
+<tr class="even">
+<td>[j]</td>
+<td>j</td>
+<td>j</td>
+<td>yes, yo-yo</td>
+<td>与 IPA 一致（dictionary.com 等用 y，不合 IPA：IPA 的 [y] 是圆唇前高元音）</td>
+</tr>
+<tr class="odd">
+<td>[w]</td>
+<td>w</td>
+<td>w</td>
+<td>window</td>
+<td>一致</td>
+</tr>
+<tr class="even">
+<td>[hw]</td>
+<td>hw / ʍ；多数美国人已读 w</td>
+<td>w</td>
+<td>which, while</td>
+<td>K&amp;K §25 用 hw；IPA 单音符号为 ʍ（清唇软腭擦音）；RP 与多数美音 which = witch</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="b-5">六、重音、次重音、长音及其它符号</h2>
+<div class="tbl"><table>
+<thead>
+<tr class="header">
+<th>项目</th>
+<th>KK（原书）</th>
+<th>KK（台湾教材常见印法）</th>
+<th>IPA 2020</th>
+<th>英式 / 美式词典</th>
+<th>差异说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>主重音</td>
+<td>ˈ（线上方、放在重读音节前，K&amp;K §4）</td>
+<td>ˋ（如 doctor [ˋdɑktɚ]、apple [ˋæpəl]）</td>
+<td>ˈ（Primary stress）</td>
+<td>ˈ（Cambridge UK/US、OALD）</td>
+<td>台湾教材把竖线印成向左斜的 ˋ，位置相同；IPA 正式为竖线 ˈ</td>
+</tr>
+<tr class="even">
+<td>次重音</td>
+<td>ˌ（线下方，K&amp;K §4）</td>
+<td>ˏ 或 ͵（如 yo-yo [ˋjo͵jo]）</td>
+<td>ˌ（Secondary stress）</td>
+<td>ˌ（如 retell /ˌriːˈtel/）</td>
+<td>同上</td>
+</tr>
+<tr class="odd">
+<td>单音节词</td>
+<td>不标重音（K&amp;K §48：单音节词无 accent）</td>
+<td>不标</td>
+<td>视需要</td>
+<td>一般不标</td>
+<td>一致</td>
+</tr>
+<tr class="even">
+<td>长音</td>
+<td>一般不标；冒号「:」只偶尔表示时长（§5、§55），且「与音质无关」</td>
+<td>不标</td>
+<td>ː 长；ˑ 半长</td>
+<td>英式：iː ɑː ɔː uː ɜː 系统使用；美式 Cambridge American Dictionary 对 i ɑ ɔ u <strong>不加</strong> ː</td>
+<td>KK 元音靠音质区分（[i]/[ɪ]、[u]/[ᴜ]）；英式靠「音质 + 长音」双重区分</td>
+</tr>
+<tr class="odd">
+<td>音节分界</td>
+<td>无（必要时用居中点·表示两音节）</td>
+<td>—</td>
+<td>. （Syllable break）</td>
+<td>Cambridge UK 用 .（/ˈsɪs.təm/），美式词典用 ·</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>括号</td>
+<td>方括号 [ ]</td>
+<td>方括号 [ ]</td>
+<td>[ ] 表示语音（严式），/ / 表示音位（宽式）</td>
+<td>词典用 / /</td>
+<td>KK 实际是音位式标音，按 IPA 惯例应写 / /；台湾习惯写 [ ]</td>
+</tr>
+<tr class="odd">
+<td>卷舌化</td>
+<td>ɝ、ɚ（合成字形）</td>
+<td>ɝ、ɚ</td>
+<td>附加符号 ˞</td>
+<td>ɝː / ɚ（美）；ɜː / ə（英）</td>
+<td>见第四节</td>
+</tr>
+<tr class="even">
+<td>塞擦音连写</td>
+<td>tʃ dʒ（无弧）</td>
+<td>tʃ dʒ</td>
+<td>可加连接弧 t͡ʃ d͡ʒ</td>
+<td>一般不加</td>
+<td>见第五节</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="b-6">七、给教学者的速记：KK → 英式词典最常见的五个「看错点」</h2>
+<ol type="1">
+<li>KK [e]（name）＝ IPA eɪ；英式 e（bed）＝ KK [ɛ]。</li>
+<li>KK [o]（home）＝ 美式 oʊ ＝ 英式 əʊ。</li>
+<li>KK [ᴜ] ＝ IPA ʊ（同一个音，只是字形不同）。</li>
+<li>KK [i] [u] [ɑ] [ɔ] 不标长音 ＝ 英式 iː uː ɑː ɔː；KK hot 的 [ɑ] ＝ 英式 ɒ。</li>
+<li>KK [ɝ] [ɚ] ＝ 英式 ɜː、ə（英音不卷舌）；KK 字尾的 r ＝ 英式 (r)（不念）。</li>
+</ol>
+<h2 id="b-7">参考来源（均已打开核实）</h2>
+<ol type="1">
+<li>Kenyon, J. S. &amp; Knott, T. A., <em>A Pronouncing Dictionary of American English</em>（Merriam, 1944/1953）, Introduction「The Phonetic Alphabet」§§4–26、§§48–55，archive.org 扫描全文：<a href="https://archive.org/details/pronouncingdicti00unse">https://archive.org/details/pronouncingdicti00unse</a></li>
+<li>Wikipedia, "A Pronouncing Dictionary of American English"（Kenyon and Knott）：<a href="https://en.wikipedia.org/wiki/Kenyon_and_Knott">https://en.wikipedia.org/wiki/Kenyon_and_Knott</a></li>
+<li>International Phonetic Association, "The International Phonetic Alphabet and the IPA Chart"（2018/2020 版与 2015/2005 修订版相同）：<a href="https://www.internationalphoneticassociation.org/content/ipa-chart">https://www.internationalphoneticassociation.org/content/ipa-chart</a> ；IPA Chart (revised to 2020) PDF：<a href="https://www.internationalphoneticassociation.org/IPAcharts/common_files/pdfs/pdfs_IPA_charts_archive/IPA_Kiel_2020.pdf">https://www.internationalphoneticassociation.org/IPAcharts/common_files/pdfs/pdfs_IPA_charts_archive/IPA_Kiel_2020.pdf</a></li>
+<li>Cambridge Dictionary, "Pronunciation symbols"（UK / US 对照、t̬、ɝː、ɚ、◌r、重音与音节符号、美国版不标 ː 的说明）：<a href="https://dictionary.cambridge.org/help/phonetics.html">https://dictionary.cambridge.org/help/phonetics.html</a></li>
+<li>Wikipedia, "Help:IPA/Conventions for English"（EPD、Longman、OALD、OED、K&amp;K 等词典逐音对照表）：<a href="https://en.wikipedia.org/wiki/Help:IPA/Conventions_for_English">https://en.wikipedia.org/wiki/Help:IPA/Conventions_for_English</a></li>
+<li>Wikipedia, "Help:IPA/English"（r 与 ɹ、ɛ 与 e、oʊ 与 əʊ、ɝ/ɚ、ʌ 等注释）：<a href="https://en.wikipedia.org/wiki/Help:IPA/English">https://en.wikipedia.org/wiki/Help:IPA/English</a></li>
+<li>台湾 KK 教材印刷惯例（ˋ 主重音、͵ 次重音、ᴜ、aᴜ）示例：蝦米小居「字母記憶口訣」<a href="https://sammiwago.idv.tw/phonics/letters-memory/">https://sammiwago.idv.tw/phonics/letters-memory/</a></li>
+</ol>
+<blockquote>
+<p>说明：OALD 的具体写法取自上面第 5 项来源中的 OALD（BrE/AmE）栏，未直接打开牛津词典官网的音标说明页。</p>
+</blockquote>
+</div></section>
+<p class="note">教案依视频语音整理，看不到黑板，音标符号按老师读音与 KK 惯例还原；标 <span class="q">[?]</span> 处为听不清或无法确定的板书。</p>
+</div>
+<script>
+(function(){var tabs=document.querySelectorAll('.tab');function show(p){tabs.forEach(function(t){t.classList.toggle('active',t.dataset.p===p)});document.querySelectorAll('.panel').forEach(function(x){x.classList.toggle('active',x.id===p)})}
+tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.p);history.replaceState(null,'','#'+t.dataset.p)})});
+var h=location.hash.slice(1);if(h==='ipa'||/^b-/.test(h))show('ipa');
+document.querySelectorAll('.toc a').forEach(function(a){a.addEventListener('click',function(){var id=a.getAttribute('href').slice(1);show(/^b-/.test(id)?'ipa':'lesson')})});
+if('serviceWorker' in navigator&&location.protocol!=='file:'){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})})}})();
+</script>
+</body>
+</html>

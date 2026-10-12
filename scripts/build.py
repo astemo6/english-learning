@@ -4,7 +4,7 @@
 """
 import hashlib, json, pathlib, re
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-PAGES = ['index.html', 'pronunciation.html']
+PAGES = ['index.html', 'pronunciation.html', 'kk.html']
 STATIC = ['assets/app.css', 'assets/app.js', 'manifest.webmanifest',
           'icons/icon-192.png', 'icons/icon-512.png', 'icons/maskable-512.png', 'icons/apple-touch-icon.png']
 DATA = sorted(str(p.relative_to(ROOT)) for p in (ROOT / 'data').glob('*.json'))
@@ -25,7 +25,7 @@ for page in PAGES:
     for p in STATIC:
         s = re.sub(r'(["\'])%s(\?v=[0-9a-f]+)?\1' % re.escape(p), lambda m: '%s%s?v=%s%s' % (m.group(1), p, hashes[p], m.group(1)), s)
     f.write_text(s, encoding='utf8')
-assets = ['./', 'index.html', 'pronunciation.html'] + ['%s?v=%s' % (p, hashes[p]) for p in STATIC + DATA]
+assets = ['./'] + PAGES + ['%s?v=%s' % (p, hashes[p]) for p in STATIC + DATA]
 version = hashlib.sha1(''.join(sorted(hashes.values()) + [h(p) for p in PAGES]).encode()).hexdigest()[:10]
 sw = (ROOT / 'sw.js').read_text(encoding='utf8')
 sw = re.sub(r"var VERSION='[^']*';", "var VERSION='%s';" % version, sw)

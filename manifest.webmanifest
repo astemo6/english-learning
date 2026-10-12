@@ -15,6 +15,7 @@
   ],
   "shortcuts": [
     {"name": "背单词", "url": "./#review", "icons": [{"src": "icons/icon-192.png", "sizes": "192x192"}]},
+    {"name": "KK 音标课", "url": "./kk.html", "icons": [{"src": "icons/icon-192.png", "sizes": "192x192"}]},
     {"name": "发音训练", "url": "./pronunciation.html", "icons": [{"src": "icons/icon-192.png", "sizes": "192x192"}]}
   ]
 }
