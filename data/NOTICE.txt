@@ -1,0 +1,19 @@
+Vocabulary Data Notice
+
+BEC
+The bundled BEC vocabulary file contains 2,755 entries: 2,753 entries from the LexiTyping "BEC 商务英语" dictionary plus two previously curated high-frequency core terms (cash flow and compliance). LexiTyping describes it as Cambridge BEC core vocabulary; it is not an official Cambridge examination word list. Each entry has an English headword, phonetic transcription, and Simplified Chinese meaning. The 29 source entries without phonetics were completed from ECDICT where available and with standard pronunciations for the remaining inflected words and initialisms.
+
+LexiTyping is licensed under the MIT License.
+Copyright (c) 2026 LexiTyping Contributors.
+Source: https://github.com/jasonlong10/lexi-typing
+Data file: https://raw.githubusercontent.com/jasonlong10/lexi-typing/master/src/data/dictionaries/bec.json
+See LICENSE-LEXITYPING.txt in this folder.
+
+CET-6, TOEFL, IELTS
+The bundled CET-6 vocabulary file is generated from skywind3000/ECDICT using ECDICT's source-provided "cet6" tags. The bundled TOEFL and IELTS vocabulary files are generated from the same ECDICT source using its "toefl" and "ielts" tags. They include, respectively, 5,407 CET-6 entries, 6,865 TOEFL entries, and 4,794 IELTS entries with both a phonetic transcription and Chinese translation. These are tag-backed exam-focus lists, not official exam frequency lists.
+
+ECDICT is licensed under the MIT License (Copyright (c) 2025 Linwei). The CET-6 conversion is from 54sbkyc/kotoba-ai-cards. The TOEFL and IELTS conversions retain the ECDICT word, phonetic and translation fields, with whitespace normalized for compact display.
+
+Conversion source for CET-6: 54sbkyc/kotoba-ai-cards
+Upstream for the ECDICT-backed lists: https://github.com/skywind3000/ECDICT
+See LICENSE-ECDICT.txt in this folder.
